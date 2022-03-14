@@ -1,8 +1,11 @@
+import LogIn from "./components/LogIn"
+
 function App() {
 
   return (
-    <div >
-      <p className="text-3xl font-bold underline text-cyan-800">davsb</p>
+    <div class="bg-[#EEEEEE] h-screen">
+      <p className="text-3xl font-bold underline text-cyan-800">Logo</p>
+      <LogIn/>
     </div>
   )
 }
