@@ -1,6 +1,7 @@
 import { useState } from "react"
 import LogIn from "./components/LogIn"
 import Logo from "./components/Logo"
+import RegPacientes from "./components/RegPacientes"
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
         roundedCenter={true}
       />
       <LogIn/>
+      <RegPacientes/>
     </div>
   )
 }
