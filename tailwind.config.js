@@ -1,7 +1,20 @@
 module.exports = {
   content: ["./index.html","./src/**/*.jsx"],
   theme: {
-    extend: {},
+    screens:{
+      'mw': '1110px',
+      'tighterT': {'min' : '967px', 'max' : '1110px'},
+      'xtraSm' : {'min' : '1px', 'max' : '750px'}
+    },
+    letterSpacing:{
+      widest: '.3em',
+      wide_putin: '.5em'
+    },
+    extend: {
+      fontFamily:{
+        'josefin': 'Josefin Sans, sans-serif'
+      }
+    },
   },
   plugins: [],
 }

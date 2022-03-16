@@ -6,7 +6,7 @@ const LogIn = () => {
     const [password, usePassword] = useState("");
 
   return (
-    <div class="bg-white rounded-lg container mx-auto w-1/2">
+    <div class="bg-white rounded-lg mx-auto mt-32 w-1/2">
         <form class="py-8">
             <div>
                 <label
@@ -45,7 +45,7 @@ const LogIn = () => {
                 <input
                     type="submit"
                     value="Ingresar"
-                    class="mt-5 border rounded-full py-2 px-8 md:w-2/5 bg-gradient-to-r from-cyan-500 to-blue-500"
+                    class="mt-5 border rounded-full py-2 px-8 md:w-2/5 hover:shadow-lg hover:scale-110 transition ease-in-out duration-500 bg-gradient-to-r from-cyan-500 to-blue-500"
                 />
             </div>
             
