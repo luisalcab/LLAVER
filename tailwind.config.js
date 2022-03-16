@@ -7,6 +7,7 @@ module.exports = {
       'xtraSm' : {'min' : '1px', 'max' : '750px'}
     },
     letterSpacing:{
+      rtLogo: '.2em',
       widest: '.3em',
       wide_putin: '.5em'
     },

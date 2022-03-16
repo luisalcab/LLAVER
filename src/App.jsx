@@ -7,11 +7,10 @@ function App() {
 
   return (
     <div class="bg-[#EEEEEE] h-screen">
-      <Logo
-        roundedCenter={true}
-      />
+        <Logo
+        roudedCorner={true}
+      />      
       <LogIn/>
-      <RegPacientes/>
     </div>
   )
 }
