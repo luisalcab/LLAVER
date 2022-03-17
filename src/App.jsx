@@ -8,7 +8,7 @@ function App() {
   return (
     <div class="bg-[#EEEEEE] h-screen">
         <Logo
-        roudedCorner={true}
+        full={true}
       />      
       <LogIn/>
     </div>

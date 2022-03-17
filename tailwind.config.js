@@ -4,7 +4,8 @@ module.exports = {
     screens:{
       'mw': '1110px',
       'tighterT': {'min' : '967px', 'max' : '1110px'},
-      'xtraSm' : {'min' : '1px', 'max' : '750px'}
+      'xtraSm' : {'min' : '1px', 'max' : '750px'},
+      'fullLogoSmall' : {'min' : '1px', 'max': '464px'}
     },
     letterSpacing:{
       rtLogo: '.2em',
