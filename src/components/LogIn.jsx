@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState} from 'react'
+import Error from './Error';
 
 const LogIn = () => {
     const [user, useUser] = useState("");
@@ -7,7 +8,8 @@ const LogIn = () => {
 
   return (
     <div class="bg-white rounded-lg mx-auto mt-32 w-1/2">
-        <form class="py-8">
+        <form class="py-1">
+            {/* <Error/> */}
             <div>
                 <label
                     htmlFor="usuario"
