@@ -9,7 +9,7 @@ const LogIn = () => {
   return (
     <div class="bg-white rounded-lg mx-auto mt-32 w-1/2">
         <form class="py-1">
-            {/* <Error/> */}
+            {/*<Error>xdxdxd</Error>*/}
             <div>
                 <label
                     htmlFor="usuario"
