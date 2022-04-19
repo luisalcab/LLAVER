@@ -5,16 +5,16 @@ import Error from "./components/Error"
 import RegPacientes from "./components/RegPacientes"
 
 function App() {
+    const [logIn, setLogIn] = useState(true);
+    const [regPacientes, setRegPacientes] = useState(false);
+    return (
+        <div class="bg-[#EEEEEE] h-screen">
+            <Logo roudedCorner={true}/>      
 
-  return (
-    <div class="bg-[#EEEEEE] h-screen">
-        <Logo
-        full={true}
-      />      
-      
-      <LogIn/>
-    </div>
-  )
+            {(logIn && <LogIn setRegPacientes={setRegPacientes} setLogIn={setLogIn}/>)}
+            {(regPacientes && <RegPacientes/>)}
+        </div>
+    )
 }
 
 export default App

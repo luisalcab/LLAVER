@@ -2,13 +2,40 @@ import React from 'react'
 import {useState} from 'react'
 import Error from './Error';
 
-const LogIn = () => {
-    const [user, useUser] = useState("");
-    const [password, usePassword] = useState("");
+const LogIn = ({setRegPacientes, setLogIn}) => {
+    const [user, setUser] = useState("");
+    const [password, setPassword] = useState("");
+    const [err, setErr] = useState(false);
+
+    //Functions
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        //Validamos las inputs
+        if([user,password].includes("")){
+            //Activamos el mensaje de error por el tiempo especificado
+            setErr(true);
+            setTimeout(() => setErr(false),3000)
+
+            return;
+        }
+
+        //Mandamos datos para guardar
+        return;
+    }
+
+    const temp = () =>{
+        setRegPacientes(true);
+        setLogIn(false);
+    }
 
   return (
     <div class="bg-white rounded-lg mx-auto mt-32 w-1/2">
-        <form class="py-1">
+        <form 
+            class="py-1"
+            onSubmit={handleSubmit}
+            >
+            {(err && <Error>Datos incorrectos</Error>)}
             {/*<Error>xdxdxd</Error>*/}
             <div>
                 <label
@@ -20,6 +47,7 @@ const LogIn = () => {
                     type="text"
                     placeholder="Ej: Francisco García"
                     class="rounded-br-full border mx-5 w-4/5"
+                    onChange={(e) => setUser(e.target.value)}
                 />
             </div>
             <div>
@@ -31,6 +59,7 @@ const LogIn = () => {
                     id="contraseña"
                     type="password"
                     class="rounded-br-full border mx-5 w-4/5"
+                    onChange={(e) => setPassword(e.target.value)}
                 />
             </div>
             <div class="mx-5 flex justify-between mr-35">
@@ -40,6 +69,7 @@ const LogIn = () => {
                 </button>
                 <button
                     class="text-blue-700 text-sm"
+                    onClick={() => temp()}
                 >¿Olvidó la Contraseña?
                 </button>
             </div>
