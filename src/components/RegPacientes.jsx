@@ -3,7 +3,7 @@ import React from 'react'
 const RegPacientes = () => {
 
     return(
-        <div class="bg-white rounded-lg container mx-auto w-1/2 h-4/6">
+        <div class="bg-white rounded-lg mx-auto w-1/2 mt-32">
             <form class="py-8">
                 <div>
                     <label

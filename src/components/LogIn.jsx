@@ -65,11 +65,11 @@ const LogIn = ({setRegPacientes, setLogIn}) => {
             <div class="mx-5 flex justify-between mr-35">
                 <button
                     class="text-blue-700 text-sm"
+                    onClick={() => temp()}
                 >Crear cuenta
                 </button>
                 <button
                     class="text-blue-700 text-sm"
-                    onClick={() => temp()}
                 >¿Olvidó la Contraseña?
                 </button>
             </div>
