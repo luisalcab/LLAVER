@@ -36,7 +36,6 @@ const LogIn = ({setRegPacientes, setLogIn}) => {
             onSubmit={handleSubmit}
             >
             {(err && <Error>Datos incorrectos</Error>)}
-            {/*<Error>xdxdxd</Error>*/}
             <div>
                 <label
                     htmlFor="usuario"
@@ -80,7 +79,6 @@ const LogIn = ({setRegPacientes, setLogIn}) => {
                     class="mt-5 border rounded-full py-2 px-8 md:w-2/5 hover:shadow-lg hover:scale-110 transition ease-in-out duration-500 bg-gradient-to-r from-cyan-500 to-blue-500"
                 />
             </div>
-            
         </form>
     </div>
   )
