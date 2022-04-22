@@ -2,7 +2,7 @@ import React from 'react'
 import {useState} from 'react'
 import Error from './Error';
 
-const LogIn = ({setRegPacientes, setLogIn}) => {
+const LogIn = ({setRecPassword, setLogIn}) => {
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
     const [err, setErr] = useState(false);
@@ -24,8 +24,8 @@ const LogIn = ({setRegPacientes, setLogIn}) => {
         return;
     }
 
-    const temp = () =>{
-        setRegPacientes(true);
+    const activaRecPassword = () =>{
+        setRecPassword(true);
         setLogIn(false);
     }
 
@@ -64,11 +64,12 @@ const LogIn = ({setRegPacientes, setLogIn}) => {
             <div class="mx-5 flex justify-between mr-35">
                 <button
                     class="text-blue-700 text-sm"
+                    type = "button"
                 >Crear cuenta
                 </button>
                 <button
                     class="text-blue-700 text-sm"
-                    onClick={() => temp()}
+                    onClick={() => activaRecPassword()}
                 >¿Olvidó la Contraseña?
                 </button>
             </div>
