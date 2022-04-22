@@ -1,13 +1,13 @@
 import React from 'react'
 
-const Card = ({resumen,data,text,color}) => {
+const Card = ({resumen,data,text}) => {
     const handleClick = () =>{
         console.log("XD")
     }
 
     return (
         <div 
-            class={`transition-all ease-in-out delay-75 duration-500 bg-white mx-auto w-1/4 h-60 rounded-lg group hover:bg-sky-700 hover:-translate-y-4 hover:scale-110 hover:shadow-xl`}
+            class={`transition-all ease-in-out delay-75 duration-500 bg-white mx-auto w-40 h-60 rounded-lg group hover:bg-sky-700 hover:-translate-y-4 hover:scale-110 hover:shadow-xl cursor-pointer`}
             onClick={handleClick}    
         >
             {resumen ? (
@@ -20,8 +20,8 @@ const Card = ({resumen,data,text,color}) => {
                 </div>
             </>)
                 :(
-                <div>
-                    
+                <div class="transition ease-in-out delay-75 duration-500 font-bold text-xl border-b-2 pb-3 card_min:mx-8 border-black group-hover:text-white group-hover:border-sky-200">
+                    {text}
                 </div>)}
             
         </div>

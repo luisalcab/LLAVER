@@ -13,7 +13,7 @@ function App() {
         <div class="bg-[#EEEEEE] h-screen">
             <Logo roundedCenter={true}/>
 
-            <Card resumen={true} text={"Resumen"}/>
+            <Card resumen={false} text={"Historiales medicos"}/>
             {/*Reenderizado de los componentes*/}
             {(logIn && <LogIn setRegPacientes={setRegPacientes} setLogIn={setLogIn}/>)}
             {(regPacientes && <RegPacientes/>)}
