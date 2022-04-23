@@ -10,18 +10,24 @@ import Validation from "./components/Validation"
 
 function App() {
     //States patra el control del flujo
-    const [validation, setValidation] = useState(false);
     const [logIn, setLogIn] = useState(true);
-    const [regPacientes, setRegPacientes] = useState(false);
     const [recPassword, setRecPassword] = useState(false);
+    const [regGeriatra, setRegGeriatra] = useState(false);
+    const [validation, setValidation] = useState(false);
+    //gulag
+    const [regPacientes, setRegPacientes] = useState(false);
 
     return (
         <div class="bg-[#EEEEEE] h-screen">
             <Logo roundedCenter={true}/>
 
             {(validation && <Validation>Contraseña cambiada con exito</Validation>)}
-            {(logIn && <LogIn setRecPassword={setRecPassword} setLogIn={setLogIn}/>)}
+            {(logIn && <LogIn
+                setRecPassword={setRecPassword} 
+                setLogIn={setLogIn}
+                setRegGeriatra={setRegGeriatra}/>)}
             {(recPassword && <RecPassword setValidation={setValidation} setRecPassword={setRecPassword}/>)}
+            {(regGeriatra && <RegGeriatra/>)}
         </div>
     )
 }

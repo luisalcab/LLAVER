@@ -2,7 +2,7 @@ import React from 'react'
 import {useState} from 'react'
 import Error from './Error';
 
-const LogIn = ({setRecPassword, setLogIn}) => {
+const LogIn = ({setRegGeriatra, setRecPassword, setLogIn}) => {
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
     const [err, setErr] = useState(false);
@@ -24,8 +24,14 @@ const LogIn = ({setRecPassword, setLogIn}) => {
         return;
     }
 
+    //Navegacion
     const activaRecPassword = () =>{
         setRecPassword(true);
+        setLogIn(false);
+    }
+
+    const activaRegGeriatra = () =>{
+        setRegGeriatra(true);
         setLogIn(false);
     }
 
@@ -65,11 +71,12 @@ const LogIn = ({setRecPassword, setLogIn}) => {
                 <button
                     class="text-blue-700 text-sm"
                     type = "button"
+                    onClick={activaRegGeriatra}
                 >Crear cuenta
                 </button>
                 <button
                     class="text-blue-700 text-sm"
-                    onClick={() => activaRecPassword()}
+                    onClick={activaRecPassword}
                 >¿Olvidó la Contraseña?
                 </button>
             </div>
