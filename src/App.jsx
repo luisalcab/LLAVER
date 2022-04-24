@@ -14,6 +14,7 @@ function App() {
     const [recPassword, setRecPassword] = useState(false);
     const [regGeriatra, setRegGeriatra] = useState(false);
     const [validation, setValidation] = useState(false);
+    const [validationMessage, setValidationMessage] = useState("");
     //gulag
     const [regPacientes, setRegPacientes] = useState(false);
 
@@ -24,15 +25,19 @@ function App() {
             {(validation && <Validation 
                 setValidation={setValidation}
                 pastComponent={setLogIn}
-            >Contraseña cambiada con exito</Validation>)}
+            >{validationMessage}</Validation>)}
             {(logIn && <LogIn
                 setRecPassword={setRecPassword} 
                 setLogIn={setLogIn}
                 setRegGeriatra={setRegGeriatra}/>)}
             {(recPassword && <RecPassword
                 setValidation={setValidation} 
-                setRecPassword={setRecPassword}/>)}
-            {(regGeriatra && <RegGeriatra/>)}
+                setRecPassword={setRecPassword}
+                setValidationMessage={setValidationMessage}/>)}
+            {(regGeriatra && <RegGeriatra
+                setValidation={setValidation}   
+                setRegGeriatra={setRegGeriatra}
+                setValidationMessage={setValidationMessage}/>)}
         </div>
     )
 }

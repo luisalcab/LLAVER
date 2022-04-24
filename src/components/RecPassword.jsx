@@ -2,7 +2,7 @@ import React from 'react'
 import {useState} from 'react'
 import Error from './Error';
 
-const RecPassword = ({setRecPassword, setValidation}) =>{
+const RecPassword = ({setRecPassword, setValidation, setValidationMessage}) =>{
     const [nombre, setNombre] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -37,6 +37,7 @@ const RecPassword = ({setRecPassword, setValidation}) =>{
         //Regresa al menu principal
         setValidation(true);
         setRecPassword(false);
+        setValidationMessage("Contraseña Recuperada con exito");
 
         //Mandamos datos para guardar
         return;
