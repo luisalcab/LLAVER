@@ -43,12 +43,11 @@ const RecPassword = ({setRecPassword, setValidation}) =>{
     }
 
     return(
-        <div class="bg-white rounded-lg mx-auto w-1/2 h-4/6">
+        <div class="bg-white rounded-lg mx-auto w-1/2 mt-20 py-10">
             <form 
-                class="py-8"
                 onSubmit={handleSubmit}
             >
-            {(err && <Error>{mensajeErr}</Error>)}                 *
+            {(err && <Error>{mensajeErr}</Error>)}
                 <div> 
                     <label
                         htmlFor="Nombre"
@@ -89,7 +88,7 @@ const RecPassword = ({setRecPassword, setValidation}) =>{
                             onChange = {(e) => setConfirmPassword(e.target.value)}
                         />
                         
-                        <p class= "text-sm">  *Datos requeridos</p>
+                        <p class= "text-sm mx-5">  *Datos requeridos</p>
                         <div class="flex justify-center">
                             <input
                                 type="submit"
