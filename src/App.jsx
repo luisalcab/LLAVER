@@ -21,7 +21,10 @@ function App() {
         <div class="bg-[#EEEEEE] h-screen">
             <Logo roundedCenter={true}/>
 
-            {(validation && <Validation>Contraseña cambiada con exito</Validation>)}
+            {(validation && <Validation 
+                setValidation={setValidation}
+                pastComponent={setLogIn}
+            >Contraseña cambiada con exito</Validation>)}
             {(logIn && <LogIn
                 setRecPassword={setRecPassword} 
                 setLogIn={setLogIn}

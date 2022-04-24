@@ -28,6 +28,16 @@ const RecPassword = ({setRecPassword, setValidation}) =>{
         } 
 
         console.log("Exito")
+        //Limpiamos los estates
+        setNombre("");
+        setNewPassword("");
+        setConfirmPassword("");
+        setMensajeErr("");
+
+        //Regresa al menu principal
+        setValidation(true);
+        setRecPassword(false);
+
         //Mandamos datos para guardar
         return;
     }
@@ -50,6 +60,7 @@ const RecPassword = ({setRecPassword, setValidation}) =>{
                         type="text"
                         placeholder="Ej: Francisco García"
                         class="rounded-br-full border mx-5 w-4/5"
+                        value={nombre}
                         onChange = {(e) => setNombre(e.target.value)} 
                     />
                 </div>
@@ -63,6 +74,7 @@ const RecPassword = ({setRecPassword, setValidation}) =>{
                             id="NewPassword"
                             type="password"
                             class="rounded-br-full border mx-5 w-4/5"
+                            value={newPassword}
                             onChange = {(e) => setNewPassword(e.target.value)}
                         />
                         <label
@@ -73,6 +85,7 @@ const RecPassword = ({setRecPassword, setValidation}) =>{
                             id="ConfirmPassword"
                             type="password"
                             class="rounded-br-full border mx-5 w-4/5"
+                            value={confirmPassword}
                             onChange = {(e) => setConfirmPassword(e.target.value)}
                         />
                         
@@ -89,6 +102,5 @@ const RecPassword = ({setRecPassword, setValidation}) =>{
         </div>
     )
 }
-
 
 export default RecPassword
