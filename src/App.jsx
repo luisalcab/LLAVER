@@ -18,7 +18,7 @@ function App() {
     const [regPacientes, setRegPacientes] = useState(false);
 
     return (
-        <div class="bg-[#EEEEEE] h-screen">
+        <div class="bg-[#EEEEEE] h-screen w-full overflow-hidden">
             <Logo roundedCenter={true}/>
 
             {(validation && <Validation 
@@ -29,7 +29,9 @@ function App() {
                 setRecPassword={setRecPassword} 
                 setLogIn={setLogIn}
                 setRegGeriatra={setRegGeriatra}/>)}
-            {(recPassword && <RecPassword setValidation={setValidation} setRecPassword={setRecPassword}/>)}
+            {(recPassword && <RecPassword
+                setValidation={setValidation} 
+                setRecPassword={setRecPassword}/>)}
             {(regGeriatra && <RegGeriatra/>)}
         </div>
     )

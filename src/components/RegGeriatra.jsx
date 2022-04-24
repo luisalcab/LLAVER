@@ -3,8 +3,8 @@ import React from 'react'
 const RegGeriatra = () => {
 
     return(
-        <div class="bg-white rounded-lg container mx-auto w-1/2 h-4/6">
-            <form class="py-8">
+        <div class="bg-white rounded-lg mx-auto w-1/2 h-3/5 mt-20 pt-3">
+            <form>
                 <div>
                     <label
                         htmlFor="Nombre"
