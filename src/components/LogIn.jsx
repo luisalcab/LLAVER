@@ -2,7 +2,7 @@ import React from 'react'
 import {useState} from 'react'
 import Error from './Error';
 
-const LogIn = ({setRegPacientes, setLogIn}) => {
+const LogIn = ({setRegGeriatra, setRecPassword, setLogIn}) => {
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
     const [err, setErr] = useState(false);
@@ -24,8 +24,14 @@ const LogIn = ({setRegPacientes, setLogIn}) => {
         return;
     }
 
-    const temp = () =>{
-        setRegPacientes(true);
+    //Navegacion
+    const activaRecPassword = () =>{
+        setRecPassword(true);
+        setLogIn(false);
+    }
+
+    const activaRegGeriatra = () =>{
+        setRegGeriatra(true);
         setLogIn(false);
     }
 
@@ -36,7 +42,6 @@ const LogIn = ({setRegPacientes, setLogIn}) => {
             onSubmit={handleSubmit}
             >
             {(err && <Error>Datos incorrectos</Error>)}
-            {/*<Error>xdxdxd</Error>*/}
             <div>
                 <label
                     htmlFor="usuario"
@@ -65,11 +70,13 @@ const LogIn = ({setRegPacientes, setLogIn}) => {
             <div class="mx-5 flex justify-between mr-35">
                 <button
                     class="text-blue-700 text-sm"
-                    onClick={() => temp()}
+                    type = "button"
+                    onClick={activaRegGeriatra}
                 >Crear cuenta
                 </button>
                 <button
                     class="text-blue-700 text-sm"
+                    onClick={activaRecPassword}
                 >¿Olvidó la Contraseña?
                 </button>
             </div>
@@ -80,7 +87,6 @@ const LogIn = ({setRegPacientes, setLogIn}) => {
                     class="mt-5 border rounded-full py-2 px-8 md:w-2/5 hover:shadow-lg hover:scale-110 transition ease-in-out duration-500 bg-gradient-to-r from-cyan-500 to-blue-500"
                 />
             </div>
-            
         </form>
     </div>
   )
