@@ -10,12 +10,12 @@ import RegPacientes from "./components/RegPacientes"
 function App() {
     const [logIn, setLogIn] = useState(true);
     const [regPacientes, setRegPacientes] = useState(false);
-    const [draw, setDraw] = useState(false);
+    const [draw, setDraw] = useState(true);
     const [pencil, setPencil] = useState(false);
     const [clock, setClock] = useState(false);
     return (
         <div class="bg-[#EEEEEE] h-screen">
-            <Logo roudedCorner={true}/>      
+            <Logo roundedCenter={true}/>      
 
             {(logIn && <LogIn setRegPacientes={setRegPacientes} setLogIn={setLogIn}/>)}
             {(regPacientes && <RegPacientes/>)}
