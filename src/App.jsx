@@ -24,7 +24,6 @@ function App() {
     return (
         <div class="bg-[#EEEEEE] h-screen w-full overflow-hidden">
             <Logo roundedCenter={true}/>
-            <Draw />
             {(validation && <Validation 
                 setValidation={setValidation}
                 pastComponent={setLogIn}
