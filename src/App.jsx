@@ -35,7 +35,8 @@ function App() {
             {(recPassword && <RecPassword
                 setValidation={setValidation} 
                 setRecPassword={setRecPassword}
-                setValidationMessage={setValidationMessage}/>)}
+                setValidationMessage={setValidationMessage}
+                setLogin={setLogIn}/>)}
             {(regGeriatra && <RegGeriatra
                 setValidation={setValidation}   
                 setRegGeriatra={setRegGeriatra}
