@@ -40,7 +40,11 @@ function App() {
             {(regGeriatra && <RegGeriatra
                 setValidation={setValidation}   
                 setRegGeriatra={setRegGeriatra}
-                setValidationMessage={setValidationMessage}/>)}
+                setValidationMessage={setValidationMessage}
+                setLogin={setLogIn}/>)}
+            {(regPacientes && <RegPacientes
+                setRegpacientes={setRegPacientes}
+                setlogin={setLogIn}/>)}
         </div>
     )
 }
