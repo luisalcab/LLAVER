@@ -12,11 +12,11 @@ const Card = ({resumen,data,text}) => {
         >
             {resumen ? (
             <>
-                <div class="transition ease-in-out delay-75 duration-500 font-bold text-xl border-b-2 pb-3 card_min:mx-8 border-black group-hover:text-white group-hover:border-sky-200">
-                    {text}
+                <div class="transition ease-in-out delay-75 duration-500 border-b-2 pb-3 w-5/6 card_min:mx-auto border-black group-hover:text-white group-hover:border-sky-200">
+                    <p class="font-bold overflow-visible w-fit">{text}</p>
                 </div>
                 <div class="transition ease-in-out delay-75 duration-1000 opacity-100 text-white mx-8 group-hover:visible gruop-hover:opacity-0 group-hover:translate-y-6">
-                    Prosigo a ._.XD
+                    <p class="text-left">{data}</p>
                 </div>
             </>)
                 :(
