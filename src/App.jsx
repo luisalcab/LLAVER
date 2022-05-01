@@ -22,9 +22,14 @@ function App() {
     //gulag
     const [regPacientes, setRegPacientes] = useState(false);
 
+    // Token
+    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjg1LCJpYXQiOjE2NTE0NDg1MzksImV4cCI6MTY1MTQ2Mjk3OX0.T0N7Ewm_PEPu5Jn86yuPRM726uwxqTm0QDuk87Lak_0");
+    localStorage.setItem("token", tokenAuth);
+
     return (
         <div class="bg-[#EEEEEE] h-screen w-full">
             <Logo roundedCenter={true}/>
+            <MiniMental />
             {(validation && <Validation 
                 setValidation={setValidation}
                 pastComponent={setLogIn}
