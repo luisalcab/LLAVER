@@ -12,7 +12,6 @@ const Evaluaciones  = () => {
                 <br/>
                 Evaluaciones
                 <br/>
-                _________________________________________
             </div>
             <div class = "flex flex-row h-60 mx-40">
                 <div class="flex-grow-0 bg-white rounded-lg mx-40 mt-10 w-1/3">
@@ -60,7 +59,7 @@ const Evaluaciones  = () => {
                         <p class = "text-right"> Fecha </p>
                     </div>
                     <div class = "px-2 pt-2 h-4/5 flex-initial overflow-y-auto resize-none">
-                        <PatientCard/>
+                        <PatientCard nombre={"Agripino"} fecha={"01/01/01"}/>
                         <PatientCard/>
                         <PatientCard/>
                         <PatientCard/>

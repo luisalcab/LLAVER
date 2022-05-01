@@ -2,12 +2,15 @@ import react from "react";
 import Sidebar from "./Sidebar"
 import Logo from "./Logo"
 
-const PagInicio = () =>{
+const PagInicio = ({setPaginicio, setestadistics, setLogout}) =>{
     return(
         <div class="bg-[#EEEEEE] w-screen h-screen">      
 
             
-            <Sidebar/>
+            <Sidebar
+            setHome={setPaginicio} 
+            setEstadistics={setestadistics}
+            setLogin={setLogout}/>
             <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <div class="m-10">
                     Hola Dra. Gabriela

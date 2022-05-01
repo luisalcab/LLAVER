@@ -10,7 +10,11 @@ import Pencil from "./components/miniMentalGames/Pencil"
 import Clock from "./components/miniMentalGames/Clock"
 import RegPacientes from "./components/RegPacientes"
 import Validation from "./components/Validation"
+<<<<<<< HEAD
 import Evaluaciones from "./components/Evaluaciones"
+=======
+import MiniMental from "./components/MiniMental/MiniMental"
+>>>>>>> 5d7c626b3e88b01c4002e823e79953e73ab3ec6b
 
 function App() {
     //States patra el control del flujo
@@ -24,7 +28,7 @@ function App() {
     const [regPacientes, setRegPacientes] = useState(false);
 
     return (
-        <div class="bg-[#EEEEEE] h-screen w-full overflow-hidden">
+        <div class="bg-[#EEEEEE] h-screen w-full">
             <Logo roundedCenter={true}/>
             {(evalauaciones && <Evaluaciones/>)}
             {(validation && <Validation 
@@ -43,7 +47,11 @@ function App() {
             {(regGeriatra && <RegGeriatra
                 setValidation={setValidation}   
                 setRegGeriatra={setRegGeriatra}
-                setValidationMessage={setValidationMessage}/>)}
+                setValidationMessage={setValidationMessage}
+                setLogin={setLogIn}/>)}
+            {(regPacientes && <RegPacientes
+                setRegpacientes={setRegPacientes}
+                setlogin={setLogIn}/>)}
         </div>
     )
 }
