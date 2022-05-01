@@ -26,7 +26,7 @@ const Sidebar = ({setLogin, setEstadistics, setHome}) => {
         setHome(false);
     }
     return(
-        <div class="absolute top-0 left-0 flex flex-col place-content-between items-end bg-black w-24 min-h-screen text-white">
+        <div class="absolute top-0 left-0 z-50 flex flex-col place-content-between items-end bg-black w-24 min-h-screen text-white">
             <div>
                 <div class='w-20 rounded-l-lg  transition ease-in-out duration-700 hover:bg-white hover:text-black'>
                     <button onClick={() => Home()}class='left-4'>

@@ -10,6 +10,8 @@ import Pencil from "./components/miniMentalGames/Pencil"
 import Clock from "./components/miniMentalGames/Clock"
 import RegPacientes from "./components/RegPacientes"
 import Validation from "./components/Validation"
+import Estadistics from "./components/Estadistics"
+import PagInicio from "./components/PagInicio"
 
 function App() {
     //States patra el control del flujo
@@ -17,7 +19,9 @@ function App() {
     const [recPassword, setRecPassword] = useState(false);
     const [regGeriatra, setRegGeriatra] = useState(false);
     const [validation, setValidation] = useState(false);
+    const [estadistics, setEstadistics] = useState(false);
     const [validationMessage, setValidationMessage] = useState("");
+    const [paginicio, setPagInicio] = useState("");
     //gulag
     const [regPacientes, setRegPacientes] = useState(false);
 
@@ -45,6 +49,14 @@ function App() {
             {(regPacientes && <RegPacientes
                 setRegpacientes={setRegPacientes}
                 setlogin={setLogIn}/>)}
+            {(paginicio && <PagInicio
+                setPaginicio={setPagInicio}
+                setLogout={setLogIn}
+                setestadistics={setEstadistics}/>)} 
+            {(estadistics && <Estadistics
+                setHome={setPagInicio}
+                setLogout={setLogIn}
+                setEstadistics={setEstadistics}/>)}
         </div>
     )
 }
