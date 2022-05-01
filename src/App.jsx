@@ -12,10 +12,13 @@ import RegPacientes from "./components/RegPacientes"
 import Validation from "./components/Validation"
 import Estadistics from "./components/Estadistics"
 import PagInicio from "./components/PagInicio"
+import Evaluaciones from "./components/Evaluaciones"
+import MiniMental from "./components/MiniMental/MiniMental"
 
 function App() {
     //States patra el control del flujo
-    const [logIn, setLogIn] = useState(true);
+    const [evalauaciones, setEvaluaciones] = useState(true);
+    const [logIn, setLogIn] = useState(false);
     const [recPassword, setRecPassword] = useState(false);
     const [regGeriatra, setRegGeriatra] = useState(false);
     const [validation, setValidation] = useState(false);
@@ -26,8 +29,9 @@ function App() {
     const [regPacientes, setRegPacientes] = useState(false);
 
     return (
-        <div class="bg-[#EEEEEE] h-screen w-full overflow-hidden">
+        <div class="bg-[#EEEEEE] h-screen w-full">
             <Logo roundedCenter={true}/>
+            {(evalauaciones && <Evaluaciones/>)}
             {(validation && <Validation 
                 setValidation={setValidation}
                 pastComponent={setLogIn}
