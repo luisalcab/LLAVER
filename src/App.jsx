@@ -28,6 +28,10 @@ function App() {
     //gulag
     const [regPacientes, setRegPacientes] = useState(false);
 
+    // Token
+    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjk0LCJpYXQiOjE2NTE1MjE1MjUsImV4cCI6MTY1MTUzNTk2NX0.Bm7W_iCG93XOL0YefzYidDzwB1Af4gXtRxJcyrK5cCI");
+    localStorage.setItem("token", tokenAuth);
+
     return (
         <div class="bg-[#EEEEEE] h-screen w-full">
             <Logo roundedCenter={true}/>
