@@ -1,8 +1,10 @@
 import React from 'react'
 import {useState} from 'react'
 import Error from './Error';
+import Back from './Back'
 
-const RecPassword = ({setRecPassword, setValidation, setValidationMessage}) =>{
+const RecPassword = ({setRecPassword, setValidation, setValidationMessage, setLogin}) =>{
+
     const [nombre, setNombre] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -45,6 +47,7 @@ const RecPassword = ({setRecPassword, setValidation, setValidationMessage}) =>{
 
     return(
         <div class="bg-white rounded-lg mx-auto w-1/2 mt-20 py-10">
+            <Back setBackPage={setLogin} setActualPage={setRecPassword}/>
             <form 
                 onSubmit={handleSubmit}
             >

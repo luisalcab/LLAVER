@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
 import Error from './Error'
+import Back from './Back'
 
-const RegGeriatra = ({setRegGeriatra, setValidation, setValidationMessage}) => {
+const RegGeriatra = ({setRegGeriatra, setValidation, setValidationMessage, setLogin}) => {
     const [nombre, setNombre] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -48,6 +49,7 @@ const RegGeriatra = ({setRegGeriatra, setValidation, setValidationMessage}) => {
 
     return(
         <div class="bg-white rounded-lg mx-auto w-1/2 h-3/5 mt-20">
+            <Back setActualPage={setRegGeriatra} setBackPage={setLogin}/>
             <form
                 onSubmit={handleSubmit}
             >

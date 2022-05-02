@@ -1,9 +1,12 @@
 import React from 'react'
+import Back from './Back'
+import axios from 'axios'
 
-const RegPacientes = () => {
+const RegPacientes = ({setRegpacientes, setlogin}) => {
 
     return(
-        <div class="bg-white rounded-lg container mx-auto w-1/2 h-4/6">
+        <div class="bg-white rounded-lg mx-auto w-1/2 mt-32">
+            <Back setBackPage={setlogin} setActualPage={setRegpacientes}/>
             <form class="py-8">
                 <div>
                     <label
