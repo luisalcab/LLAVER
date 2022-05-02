@@ -6,7 +6,7 @@ const Get = (URL, token) => {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
 
-    const apiUrl = "http://geriatric-app.herokuapp.com";
+    const apiUrl = "https://geriatric-app.herokuapp.com";
     const authAxios = axios.create({
         baseURL: apiUrl,
         headers: {
