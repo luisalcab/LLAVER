@@ -7,6 +7,7 @@ import Card from "./components/Card"
 import Error from "./components/Error"
 import RegPacientes from "./components/RegPacientes"
 import Validation from "./components/Validation"
+import Sidebar from "./components/Sidebar"
 
 function App() {
     //States patra el control del flujo
@@ -22,6 +23,7 @@ function App() {
         <div class="bg-[#EEEEEE] h-screen w-full overflow-hidden">
             <Logo roundedCenter={true}/>
 
+            <Card text={"Resumen"} resumen={true}/>
             {(validation && <Validation 
                 setValidation={setValidation}
                 pastComponent={setLogIn}
