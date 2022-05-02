@@ -10,15 +10,21 @@ import Pencil from "./components/miniMentalGames/Pencil"
 import Clock from "./components/miniMentalGames/Clock"
 import RegPacientes from "./components/RegPacientes"
 import Validation from "./components/Validation"
+import Estadistics from "./components/Estadistics"
+import PagInicio from "./components/PagInicio"
+import Evaluaciones from "./components/Evaluaciones"
 import MiniMental from "./components/MiniMental/MiniMental"
 
 function App() {
     //States patra el control del flujo
-    const [logIn, setLogIn] = useState(true);
+    const [evalauaciones, setEvaluaciones] = useState(true);
+    const [logIn, setLogIn] = useState(false);
     const [recPassword, setRecPassword] = useState(false);
     const [regGeriatra, setRegGeriatra] = useState(false);
     const [validation, setValidation] = useState(false);
+    const [estadistics, setEstadistics] = useState(false);
     const [validationMessage, setValidationMessage] = useState("");
+    const [paginicio, setPagInicio] = useState("");
     //gulag
     const [regPacientes, setRegPacientes] = useState(false);
 
@@ -29,7 +35,7 @@ function App() {
     return (
         <div class="bg-[#EEEEEE] h-screen w-full">
             <Logo roundedCenter={true}/>
-            <MiniMental />
+            {(evalauaciones && <Evaluaciones/>)}
             {(validation && <Validation 
                 setValidation={setValidation}
                 pastComponent={setLogIn}
@@ -51,6 +57,14 @@ function App() {
             {(regPacientes && <RegPacientes
                 setRegpacientes={setRegPacientes}
                 setlogin={setLogIn}/>)}
+            {(paginicio && <PagInicio
+                setPaginicio={setPagInicio}
+                setLogout={setLogIn}
+                setestadistics={setEstadistics}/>)} 
+            {(estadistics && <Estadistics
+                setHome={setPagInicio}
+                setLogout={setLogIn}
+                setEstadistics={setEstadistics}/>)}
         </div>
     )
 }
