@@ -44,7 +44,7 @@ const Evaluaciones  = () => {
                                 class="rounded-br-full border mx-5 w-4/5"
                             />
                         </div>
-                        <div class="flex justify-end">
+                        <div class="flex justify-end text-white">
                             <input
                                 type="submit"
                                 value="Filtrar"
@@ -54,9 +54,11 @@ const Evaluaciones  = () => {
                     </form>
                 </div>
                 <div class = "bg-white rounded-[20px] mx-0 mt-10 w-1/2">
-                    <div class = "flex flex-row justify-around bg-[#aa5ae8]">
-                        <p class = "text-center"> Nombre  </p>
-                        <p class = "text-right"> Fecha </p>
+                    <div class = "flex flex-row justify-around text-center bg-[#aa5ae8]">
+                        <p class = " w-5/12"> Nombre  </p>
+                        <p class = " w-5/12"> Fecha </p>
+                        <p class = " w-1/12"></p>
+                        <p class = " w-1/12"></p>
                     </div>
                     <div class = "px-2 pt-2 h-4/5 flex-initial overflow-y-auto resize-none">
                         <PatientCard nombre={"Agripino"} fecha={"01/01/01"}/>

@@ -28,7 +28,7 @@ const Sidebar = ({setLogin, setEstadistics, setHome}) => {
     return(
         <div class="absolute top-0 left-0 z-50 flex flex-col place-content-between items-end bg-black w-24 min-h-screen text-white">
             <div>
-                <div class='w-20 rounded-l-lg  transition ease-in-out duration-700 hover:bg-white hover:text-black'>
+                <div class='w-20 rounded-l-lg  transition ease-in-out duration-700 hover:bg-[#EEEEEE] hover:text-black'>
                     <button onClick={() => Home()}class='left-4'>
                     <IconContext.Provider value={{size:60}}>
                         <AiOutlineHome/>
@@ -37,7 +37,7 @@ const Sidebar = ({setLogin, setEstadistics, setHome}) => {
                 </div>
                 
                 <br/>
-                <div class='w-20 rounded-l-lg  transition ease-in-out duration-700 hover:bg-white hover:text-black'>
+                <div class='w-20 rounded-l-lg  transition ease-in-out duration-700 hover:bg-[#EEEEEE] hover:text-black'>
                     <button onClick={() => Estadistics()}>
                     <IconContext.Provider value={{size:60}}>
                         <AiOutlineBarChart/>
@@ -48,7 +48,7 @@ const Sidebar = ({setLogin, setEstadistics, setHome}) => {
             </div>
         
             <br/>
-            <div class='w-20 rounded-l-lg  transition ease-in-out duration-700 hover:bg-white hover:text-black'>
+            <div class='w-20 rounded-l-lg  transition ease-in-out duration-700 hover:bg-[#EEEEEE] hover:text-black'>
                 <button onClick={() => Logout()}>
                     <IconContext.Provider value={{size:60}}>
                         <BiLogOut/>

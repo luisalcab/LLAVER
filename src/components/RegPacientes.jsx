@@ -1,5 +1,6 @@
 import React from 'react'
 import Back from './Back'
+import axios from 'axios'
 
 const RegPacientes = ({setRegpacientes, setlogin}) => {
 

@@ -8,7 +8,7 @@ const Estadistics = ({setHome, setLogout, setEstadistics}) => {
             <Sidebar setHome={setHome} setLogin={setLogout} setEstadistics={setEstadistics}/>
             <div class="absolute top-52 left-1/2 transform -translate-x-1/2">
             </div>
-            <div class='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 grid grid-cols-2 gap-y-14 mx-auto w-1/3'>
+            <div class='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 grid grid-cols-2 gap-y-6 mx-auto w-1/3'>
                 <div id='Edad-Puntaje'>
                     <AnyChart
                     id='Edad-Puntaje-Grafica'
@@ -33,10 +33,8 @@ const Estadistics = ({setHome, setLogout, setEstadistics}) => {
                     type="column"
                     data={
                         [
-                            ['60-70',4],
-                            ['70-80',2],
-                            ['80-90',3],
-                            ['90-100',3]
+                            ['Masculino',4],
+                            ['Femenino',2]
                         ]
                     }
                     title="Sexo - Puntaje Promedio"/>
@@ -49,10 +47,10 @@ const Estadistics = ({setHome, setLogout, setEstadistics}) => {
                     type="column"
                     data={
                         [
-                            ['60-70',4],
-                            ['70-80',2],
-                            ['80-90',3],
-                            ['90-100',3]
+                            ['2019',4],
+                            ['2020',2],
+                            ['2021',3],
+                            ['2022',3]
                         ]
                     }
                     title="Años - Puntaje Promedio"/>
