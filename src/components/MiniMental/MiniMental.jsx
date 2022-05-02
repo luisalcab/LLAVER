@@ -7,7 +7,7 @@ import Get from '../../Hooks/Get.jsx';
 
 const MiniMental = () => {
 
-    const [escolaridad, setEscolaridad] = useState(3);
+    const [escolaridad, setEscolaridad] = useState(4);
     const [idExam, setIdExam] = useState(1);
 
     // Conexión con el servidor
@@ -52,9 +52,6 @@ const MiniMental = () => {
             </h1>
             <form>
                 <Pregunta/>
-                <div>
-                    <p className='ml-12'>NOTAS</p>
-                </div>
                 <div class="flex justify-center text-white">
                     <input
                         type="submit"
