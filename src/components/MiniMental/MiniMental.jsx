@@ -3,42 +3,25 @@ import { useState, useEffect } from 'react'
 import Cards from "./Cards.jsx";
 import Examen from "./MiniMental.json";
 import axios from 'axios';
+import Get from '../../Hooks/Get.jsx';
 
 const MiniMental = () => {
 
-    const [exam, setExam] = useState();
-    const [escolaridad, setEscolaridad] = useState(4);
+    const [escolaridad, setEscolaridad] = useState(3);
     const [idExam, setIdExam] = useState(1);
 
     // Conexión con el servidor
     const [tokenAuth, setTokenAuth] = useState(localStorage.getItem("token"));
-    const apiUrl = "http://localhost:3002";
-    const authAxios = axios.create({
-        baseURL: apiUrl,
-        headers: {
-            "x-access-token": `${tokenAuth}`
-        }
-    });
+    const apiUrl = `/consultaGeriatrica/obtenerExamen/${idExam}`;	
+    const [datos, error] = Get(apiUrl, tokenAuth);
 
-    async function getExam() {
-        try {
-          const response = await authAxios.get('/consultaGeriatrica/obtenerExamen/1');
-            setExam(response.data.response);
-        } catch (error) {
-          console.error(error);
-        }
-      }
-
-    useEffect( () => {
-        getExam();
-    }, []);
 
     const Pregunta = () => {
 
         return (
             <div>
                 
-                {exam.data.examnSections && exam.data.examnSections.map((section) => (
+                {datos.data.examnSections && datos.data.examnSections.map((section) => (
                     <div>
                         <h3 className='ml-12'>
                             {section.nombreSeccion}
@@ -57,17 +40,21 @@ const MiniMental = () => {
         )
     }
 
-    if(!exam) {
+    if(!datos) {
         return null;
     }
+
     return (
         <div className='bg-white rounded-lg shadow-lg mx-auto w-4/6 items-center p-5 mt-16'>
             
             <h1 className='font-bold m-5'>
-                {exam.data.examn.nombreExamen}
+                {datos.data.examn.nombreExamen}
             </h1>
             <form>
                 <Pregunta/>
+                <div>
+                    <p className='ml-12'>NOTAS</p>
+                </div>
                 <div class="flex justify-center text-white">
                     <input
                         type="submit"
