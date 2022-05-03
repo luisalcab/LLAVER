@@ -46,8 +46,12 @@ const RecPassword = ({setRecPassword, setValidation, setValidationMessage, setLo
     }
 
     return(
-        <div class="bg-white rounded-lg mx-auto w-1/2 mt-20 py-10">
+        <div class="bg-white rounded-lg mx-auto w-1/2 mt-20 py-3">
             <Back setBackPage={setLogin} setActualPage={setRecPassword}/>
+            <div class = "text-center text-xl font-bold py-3">
+                Recuperación de contraseña
+            </div>
+            <hr class = "mb-5"/>
             <form 
                 onSubmit={handleSubmit}
             >
@@ -93,7 +97,7 @@ const RecPassword = ({setRecPassword, setValidation, setValidationMessage, setLo
                         />
                         
                         <p class= "text-sm mx-5">  *Datos requeridos</p>
-                        <div class="flex justify-center">
+                        <div class="flex justify-center text-white">
                             <input
                                 type="submit"
                                 value="Cambiar contraseña"
