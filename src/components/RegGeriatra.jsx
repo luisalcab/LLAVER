@@ -48,8 +48,12 @@ const RegGeriatra = ({setRegGeriatra, setValidation, setValidationMessage, setLo
     }
 
     return(
-        <div class="bg-white rounded-lg mx-auto w-1/2 h-3/5 mt-20">
+        <div class="bg-white rounded-lg mx-auto w-1/2 mt-12">
             <Back setActualPage={setRegGeriatra} setBackPage={setLogin}/>
+            <div class = "text-center text-xl font-bold py-5">
+                Registro de Geriatras
+            </div>
+            <hr class = "mb-5"/>
             <form
                 onSubmit={handleSubmit}
             >
@@ -114,7 +118,7 @@ const RegGeriatra = ({setRegGeriatra, setValidation, setValidationMessage, setLo
                         class="rounded-br-full border mx-5 w-4/5"
                     />
                     <p class= "text-sm mx-5">  *Datos requeridos</p>
-                    <div class="flex justify-center text-white">
+                    <div class="flex justify-center text-white py-2">
                         <input
                             type="submit"
                             value="Sign in"

@@ -5,9 +5,13 @@ import axios from 'axios'
 const RegPacientes = ({setRegpacientes, setlogin}) => {
 
     return(
-        <div class="bg-white rounded-lg mx-auto w-1/2 mt-32">
+        <div class="bg-white rounded-lg mx-auto w-1/2 mt-20">
             <Back setBackPage={setlogin} setActualPage={setRegpacientes}/>
-            <form class="py-8">
+            <div class = "text-center text-xl font-bold py-5">
+                Registro de pacientes
+            </div>
+            <hr class = "mb-5"/>
+            <form >
                 <div>
                     <label
                         htmlFor="Nombre"
@@ -47,8 +51,8 @@ const RegPacientes = ({setRegpacientes, setlogin}) => {
                     type="tel"
                     class="rounded-br-full border mx-5 w-4/5"
                 />
-                <p class= "text-sm">  *Datos requeridos</p>
-                <div class="flex justify-center text-white">
+                <p class= "text-sm mx-5">  *Datos requeridos</p>
+                <div class="flex justify-center text-white py-4">
                     <input
                         type="submit"
                         value="Registrar"

@@ -6,9 +6,10 @@ const UpdatePatient = ({setUpdatePatient, setEvaluaciones}) =>{
             <Back setBackPage={setEvaluaciones} setActualPage={setUpdatePatient}/>
             <div  class="bg-white rounded-lg mx-auto w-1/2 mt-32">
                 
-                <div class = "text-center text-xl font-bold">
-                    Actualización de datos de <br/> paciente <br/><br/>
+                <div class = "text-center text-xl font-bold py-5">
+                    Actualización de datos de paciente
                 </div>
+                <hr class = "mb-5"/>
 
                 <form>
                     <div className="flex flex-col w-11/12 m-auto ">
@@ -53,7 +54,7 @@ const UpdatePatient = ({setUpdatePatient, setEvaluaciones}) =>{
                             class="rounded-br-full border "
                         />
                     </div>
-                    <div class="flex justify-center text-white">
+                    <div class="flex justify-center text-white py-5">
                         <input
                             type="submit"
                             value="Actualizar"
