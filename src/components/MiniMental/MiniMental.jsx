@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react'
 import Cards from "./Cards.jsx";
 import axios from 'axios';
 import Get from '../../Hooks/Get.jsx';
-import Notas from './Notas.jsx';
+import Textito from './textArea.jsx';
+import Spinner from "../Spinner";
 
 const MiniMental = () => {
 
@@ -41,9 +42,10 @@ const MiniMental = () => {
 
     return (
         <>
+        
         {datos ? (
-            <>
-            <Notas/>
+            <div> 
+                <Textito/>
                 <div className='bg-white rounded-lg shadow-lg mx-auto w-4/6 items-center p-5 mt-16'>
                     <h1 className='font-bold m-5'>
                         {datos.data.examn.nombreExamen}
@@ -59,11 +61,11 @@ const MiniMental = () => {
                         </div>
                     </form>
                 </div>
-            </>
+            </div>
             )
             :(
                 <div>
-
+                    <Spinner/>
                 </div>
             )}
         </>

@@ -10,6 +10,7 @@ import Pencil from "./components/miniMentalGames/Pencil"
 import Clock from "./components/miniMentalGames/Clock"
 import RegPacientes from "./components/RegPacientes"
 import Validation from "./components/Validation"
+import Sidebar from "./components/Sidebar"
 import Estadistics from "./components/Estadistics"
 import PagInicio from "./components/PagInicio"
 import Evaluaciones from "./components/Evaluaciones"
@@ -30,7 +31,7 @@ function App() {
     const [regPacientes, setRegPacientes] = useState(false);
 
     // Token
-    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjk0LCJpYXQiOjE2NTE1MzY4MzEsImV4cCI6MTY1MTU1MTI3MX0.U2ZI6egrB_eJYZ8Q0Vhq8AfislOxcXw9HHbNVHuWE38");
+    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjk0LCJpYXQiOjE2NTE1OTQ5NzYsImV4cCI6MTY1MTYwOTQxNn0.wwXrY0REiE4x_uQo5rCTieTUDecnQYrvgfXY_bz8Td4");
     localStorage.setItem("token", tokenAuth);
 
     return (
