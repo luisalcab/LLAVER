@@ -27,16 +27,18 @@ function App() {
     const [estadistics, setEstadistics] = useState(false);
     const [validationMessage, setValidationMessage] = useState("");
     const [paginicio, setPagInicio] = useState("");
+    const [miniMental, setMiniMental] = useState(false);
     //gulag
     const [regPacientes, setRegPacientes] = useState(false);
 
     // Token
-    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjk0LCJpYXQiOjE2NTE1MjE1MjUsImV4cCI6MTY1MTUzNTk2NX0.Bm7W_iCG93XOL0YefzYidDzwB1Af4gXtRxJcyrK5cCI");
+    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjk0LCJpYXQiOjE2NTE1ODk1NjAsImV4cCI6MTY1MTYwNDAwMH0.kA0FqbrNxdd6WgRGiFA2_nzSsN7OmDLiCNUN5Nx5440");
     localStorage.setItem("token", tokenAuth);
 
     return (
         <div class="bg-[#EEEEEE] h-screen w-full">
             <Logo roundedCenter={true}/>
+            {(miniMental && <MiniMental/>)}
             {(evalauaciones && <Evaluaciones/>)}
             {(updatePatient && <UpdatePatient/>)}
             {(validation && <Validation 

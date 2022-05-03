@@ -16,6 +16,7 @@ const Pencil = () => {
             canvas.height = 480;
     })
     }, []);
+
     return (
         <div class="bg-white rounded-lg mx-auto m-5">
             <Unity unityContext={unityContext} matchWebGLToCanvasSize={false}
