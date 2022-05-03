@@ -10,14 +10,15 @@ import Pencil from "./components/miniMentalGames/Pencil"
 import Clock from "./components/miniMentalGames/Clock"
 import RegPacientes from "./components/RegPacientes"
 import Validation from "./components/Validation"
-import Sidebar from "./components/Sidebar"
 import Estadistics from "./components/Estadistics"
 import PagInicio from "./components/PagInicio"
 import Evaluaciones from "./components/Evaluaciones"
 import MiniMental from "./components/MiniMental/MiniMental"
+import UpdatePatient from "./components/UpdatePatient"
 
 function App() {
     //States patra el control del flujo
+    const [updatePatient, setUpdatePatient] = useState(true);
     const [evalauaciones, setEvaluaciones] = useState(false);
     const [logIn, setLogIn] = useState(false);
     const [recPassword, setRecPassword] = useState(false);
@@ -36,9 +37,8 @@ function App() {
     return (
         <div class="bg-[#EEEEEE] h-screen w-full">
             <Logo roundedCenter={true}/>
-            <MiniMental/>
-
             {(evalauaciones && <Evaluaciones/>)}
+            {(updatePatient && <UpdatePatient/>)}
             {(validation && <Validation 
                 setValidation={setValidation}
                 pastComponent={setLogIn}
