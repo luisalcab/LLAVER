@@ -57,7 +57,7 @@ const RegGeriatra = ({setRegGeriatra, setValidation, setValidationMessage, setLo
                 <div>
                     <label
                         htmlFor="Nombre"
-                        class="block mx-5"
+                        class={`block mx-5 ${(err & nombre == "") ? 'text-red-700' : ""}`}
                         >Nombre*</label>
                     <input
                         id="Nombre"
@@ -71,7 +71,7 @@ const RegGeriatra = ({setRegGeriatra, setValidation, setValidationMessage, setLo
                 <div>
                     <label
                         htmlFor="Password"
-                        class="block mx-5 mt-5"
+                        class={`block mx-5 mt-5 ${(err & password == "" | err & password != confirmPassword) ? 'text-red-700' : ""}`}
                     >Password*</label>
                     <input
                         id="Password"
@@ -82,7 +82,7 @@ const RegGeriatra = ({setRegGeriatra, setValidation, setValidationMessage, setLo
                     />
                     <label
                         htmlFor="PasswordCheck"
-                        class="block mx-5 mt-5"
+                        class={`block mx-5 mt-5 ${(err & confirmPassword == "" | err & password != confirmPassword) ? 'text-red-700' : ""}`}
                     >Confirme Password*</label>
                     <input
                         id="PasswordCheck"
@@ -93,7 +93,7 @@ const RegGeriatra = ({setRegGeriatra, setValidation, setValidationMessage, setLo
                     />
                     <label
                         htmlFor="Correo"
-                        class="block mx-5 mt-5"
+                        class={`block mx-5 mt-5 ${(err & email == "") ? 'text-red-700' : ""}`}
                     >Correo electronico*</label>
                     <input
                         id="Correo"
@@ -104,7 +104,7 @@ const RegGeriatra = ({setRegGeriatra, setValidation, setValidationMessage, setLo
                     />
                     <label
                         htmlFor="Institucion"
-                        class="block mx-5 mt-5"
+                        class={`block mx-5 mt-5 ${(err & institucion == "") ? 'text-red-700' : ""}`}
                     >Institucion*</label>
                     <input
                         id="Institucion"

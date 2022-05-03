@@ -3,7 +3,8 @@ import {useState} from 'react'
 import Error from './Error';
 
 const LogIn = ({setRegGeriatra, setRecPassword, setLogIn}) => {
-    const [user, setUser] = useState("");
+    const [nombre, setNombre] = useState("");
+    const [apellido, setApellido] = useState("");
     const [password, setPassword] = useState("");
     const [err, setErr] = useState(false);
 
@@ -12,7 +13,7 @@ const LogIn = ({setRegGeriatra, setRecPassword, setLogIn}) => {
         e.preventDefault();
 
         //Validamos las inputs
-        if([user,password].includes("")){
+        if([nombre,apellido,password].includes("")){
             //Activamos el mensaje de error por el tiempo especificado
             setErr(true);
             setTimeout(() => setErr(false),3000)
@@ -44,21 +45,34 @@ const LogIn = ({setRegGeriatra, setRecPassword, setLogIn}) => {
             {(err && <Error>Datos incorrectos</Error>)}
             <div>
                 <label
-                    htmlFor="usuario"
-                    class="block mx-5"
-                    >Nombre de Usuario</label>
+                    htmlFor="nombre"
+                    class={`block mx-5 ${(err & nombre == "") ? 'text-red-700' : ""}`}
+                    >Nombre(s)</label>
                 <input
-                    id="usuario"
+                    id="nombre"
                     type="text"
-                    placeholder="Ej: Francisco García"
+                    placeholder="Ej: Francisco"
                     class="rounded-br-full border mx-5 w-4/5"
-                    onChange={(e) => setUser(e.target.value)}
+                    onChange={(e) => setNombre(e.target.value)}
+                />
+            </div>
+            <div>
+                <label
+                    htmlFor="apellido"
+                    class={`block mx-5 ${(err & apellido == "") ? 'text-red-700' : ""}`}
+                    >Apellidos</label>
+                <input
+                    id="apellido"
+                    type="text"
+                    placeholder="Ej:    García"
+                    class="rounded-br-full border mx-5 w-4/5"
+                    onChange={(e) => setApellido(e.target.value)}
                 />
             </div>
             <div>
                 <label
                     htmlFor="contraseña"
-                    class="block mx-5 mt-5"
+                    class={`block mx-5 mt-5 ${(err & password == "") ? 'text-red-700' : ""}`}
                 >Contraseña</label>
                 <input
                     id="contraseña"
