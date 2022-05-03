@@ -40,7 +40,9 @@ function App() {
             <Logo roundedCenter={true}/>
             {(miniMental && <MiniMental/>)}
             {(evalauaciones && <Evaluaciones/>)}
-            {(updatePatient && <UpdatePatient/>)}
+            {(updatePatient && <UpdatePatient
+                setUpdatePatient={setUpdatePatient}
+                setEvaluaciones={setEvaluaciones}/>)}
             {(validation && <Validation 
                 setValidation={setValidation}
                 pastComponent={setLogIn}

@@ -1,9 +1,9 @@
 import Back from "./Back";
 
-const UpdatePatient = () =>{
+const UpdatePatient = ({setUpdatePatient, setEvaluaciones}) =>{
     return(
         <div class = "absolute top-0 left-0 bg-gradient-to-t from-blue-700  w-screen h-screen">
-            <Back/>
+            <Back setBackPage={setEvaluaciones} setActualPage={setUpdatePatient}/>
             <div  class="bg-white rounded-lg mx-auto w-1/2 mt-32">
                 
                 <div class = "text-center text-xl font-bold">
