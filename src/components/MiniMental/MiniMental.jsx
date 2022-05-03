@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Cards from "./Cards.jsx";
 import axios from 'axios';
 import Get from '../../Hooks/Get.jsx';
-import Notas from './Notas.jsx';
+import Textito from './textArea.jsx';
 import Spinner from "../Spinner";
 
 const MiniMental = () => {
@@ -15,7 +15,6 @@ const MiniMental = () => {
     const [tokenAuth, setTokenAuth] = useState(localStorage.getItem("token"));
     const apiUrl = `/consultaGeriatrica/obtenerExamen/${idExam}`;	
     const [datos, error] = Get(apiUrl, tokenAuth);
-
 
     const Pregunta = () => {
 
@@ -43,9 +42,10 @@ const MiniMental = () => {
 
     return (
         <>
+        
         {datos ? (
-            <>
-            <Notas/>
+            <div> 
+                <Textito/>
                 <div className='bg-white rounded-lg shadow-lg mx-auto w-4/6 items-center p-5 mt-16'>
                     <h1 className='font-bold m-5'>
                         {datos.data.examn.nombreExamen}
@@ -61,7 +61,7 @@ const MiniMental = () => {
                         </div>
                     </form>
                 </div>
-            </>
+            </div>
             )
             :(
                 <div>
