@@ -4,6 +4,7 @@ import Cards from "./Cards.jsx";
 import axios from 'axios';
 import Get from '../../Hooks/Get.jsx';
 import Notas from './Notas.jsx';
+import Spinner from "../Spinner";
 
 const MiniMental = () => {
 
@@ -64,7 +65,7 @@ const MiniMental = () => {
             )
             :(
                 <div>
-
+                    <Spinner/>
                 </div>
             )}
         </>

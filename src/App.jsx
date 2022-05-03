@@ -18,7 +18,7 @@ import MiniMental from "./components/MiniMental/MiniMental"
 
 function App() {
     //States patra el control del flujo
-    const [evalauaciones, setEvaluaciones] = useState(true);
+    const [evalauaciones, setEvaluaciones] = useState(false);
     const [logIn, setLogIn] = useState(false);
     const [recPassword, setRecPassword] = useState(false);
     const [regGeriatra, setRegGeriatra] = useState(false);
@@ -36,7 +36,8 @@ function App() {
     return (
         <div class="bg-[#EEEEEE] h-screen w-full">
             <Logo roundedCenter={true}/>
-            
+            <MiniMental/>
+
             {(evalauaciones && <Evaluaciones/>)}
             {(validation && <Validation 
                 setValidation={setValidation}
