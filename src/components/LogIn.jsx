@@ -80,7 +80,7 @@ const LogIn = ({setRegGeriatra, setRecPassword, setLogIn}) => {
                 >¿Olvidó la Contraseña?
                 </button>
             </div>
-            <div class="flex justify-center">
+            <div class="flex justify-center text-white">
                 <input
                     type="submit"
                     value="Ingresar"
