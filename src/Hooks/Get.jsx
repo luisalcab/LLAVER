@@ -26,7 +26,7 @@ const Get = (URL, token) => {
         getData();
     }, []);
 
-    return [data, error];
+    return [data, error, setData];
 }
 
 export default Get

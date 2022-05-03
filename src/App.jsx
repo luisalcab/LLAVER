@@ -18,8 +18,8 @@ import MiniMental from "./components/MiniMental/MiniMental"
 
 function App() {
     //States patra el control del flujo
-    const [evalauaciones, setEvaluaciones] = useState(false);
-    const [logIn, setLogIn] = useState(true);
+    const [evalauaciones, setEvaluaciones] = useState(true);
+    const [logIn, setLogIn] = useState(false);
     const [recPassword, setRecPassword] = useState(false);
     const [regGeriatra, setRegGeriatra] = useState(false);
     const [validation, setValidation] = useState(false);
@@ -31,7 +31,7 @@ function App() {
     const [regPacientes, setRegPacientes] = useState(false);
 
     // Token
-    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjk0LCJpYXQiOjE2NTE1ODk1NjAsImV4cCI6MTY1MTYwNDAwMH0.kA0FqbrNxdd6WgRGiFA2_nzSsN7OmDLiCNUN5Nx5440");
+    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjk0LCJpYXQiOjE2NTE2MTUwMjksImV4cCI6MTY1MTYyOTQ2OX0.qkdQka2i5m-EduX7m8ZGwDbLaEI2PdBpOgAh5gBg9hw");
     localStorage.setItem("token", tokenAuth);
 
     return (

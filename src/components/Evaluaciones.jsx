@@ -4,6 +4,7 @@ import Logo from "./Logo";
 import Card from "./Card";
 import PatientCard from "./PatientCard";
 import GetPacientes from "../Hooks/GetPacientes";
+import Get from "../Hooks/Get";
 import {useState} from 'react'
 import Spinner from "./Spinner";
 import moment from "moment";
@@ -12,8 +13,17 @@ import moment from "moment";
 
 const Evaluaciones  = () => {
     const [tokenAuth, setTokenAuth] = useState(localStorage.getItem("token"));
-    const apiUrl = `/paciente/obtenerPacientesNombre`;
-    const [datos, error] = GetPacientes(apiUrl, tokenAuth,"Flor");
+    const [coincidence, setCoincidence] = useState("");
+    const apiUrl = `/paciente/mostarTodosPacientes`;
+    const filtroApiUrl = `paciente/obtenerPacientesNombre`;
+    const [datos, error, setData] = Get(apiUrl, tokenAuth);
+    const Filtro = GetPacientes(filtroApiUrl,tokenAuth)
+
+    const handleSubmit = async (e) =>{
+        e.preventDefault();
+        console.log(datos);
+        await Filtro(coincidence).then((res) => setData(res))
+    }
     return(
         <>{datos ? (
             <div class = "bg-[#EEEEEE] w-screen h-screen overflow-auto">
@@ -28,7 +38,7 @@ const Evaluaciones  = () => {
                     <div class="flex-grow-0 bg-white rounded-lg mx-40 mt-10 w-1/3">
                         <form 
                             class="py-1"
-                            // onSubmit={handleSubmit}
+                            onSubmit={handleSubmit}
                             >
                             {/* {(err && <Error>Datos incorrectos</Error>)} */}
                             <div>
@@ -41,7 +51,7 @@ const Evaluaciones  = () => {
                                     type="text"
                                     placeholder="Ej: Ana María Pérez Tovar"
                                     class="rounded-br-full border mx-5 w-4/5"
-                                    // onChange={(e) => setUser(e.target.value)}
+                                    onChange={(e) => setCoincidence(e.target.value)}
                                 />
                             </div>
                             <div>
@@ -72,8 +82,7 @@ const Evaluaciones  = () => {
                             <p class = " w-1/12"></p>
                         </div>
                         <div class = "px-2 pt-2 h-4/5 flex-initial overflow-y-auto resize-none">
-                            {datos.data.map((paciente) => <PatientCard nombre={paciente.nombre +' ' + paciente.apellido} fecha={moment(paciente.fechaNacimiento).format("DD/MM/YYYY")}/>)}
-                                                  
+                            {datos.map((paciente) => <PatientCard nombre={paciente.nombre +' ' + paciente.apellido} fecha={moment(paciente.fechaNacimiento).format("DD/MM/YYYY")}/>)}
                         </div>
                     </div>
                 </div>

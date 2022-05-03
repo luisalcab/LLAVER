@@ -1,11 +1,8 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios'
 
-const GetPacientes = (URL, token, coincidence) => {
-
-    const [data, setData] = useState(null);
+const GetPacientes = (URL, token) => {
     const [error, setError] = useState(null);
-
     const apiUrl = "https://geriatric-app.herokuapp.com";
     const authAxios = axios.create({
         baseURL: apiUrl,
@@ -14,19 +11,16 @@ const GetPacientes = (URL, token, coincidence) => {
         }
     });
 
-    useEffect(async() => {
+    const Filtro = async(coincidence) => {
         try{
-            const response = await authAxios.post(URL,{ 'nombre' : coincidence, "ademasInactivos": 0});
-            console.log(response);
-            console.log("1");
-                setData(response.data.response);
+            return await authAxios.post(URL,{ 'nombre' : coincidence, "ademasInactivos": 0}).then((res) => res.data.response.data);
         } catch (error){
             setError(error);
         }
+        return {}
+    }
 
-    }, []);
-
-    return [data, error];
+    return Filtro;
 }
 
 export default GetPacientes
