@@ -15,7 +15,6 @@ const MiniMental = () => {
     const apiUrl = `/consultaGeriatrica/obtenerExamen/${idExam}`;	
     const [datos, error] = Get(apiUrl, tokenAuth);
 
-
     const Pregunta = () => {
 
         return (
