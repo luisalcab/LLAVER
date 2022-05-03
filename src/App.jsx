@@ -26,26 +26,18 @@ function App() {
     const [estadistics, setEstadistics] = useState(false);
     const [validationMessage, setValidationMessage] = useState("");
     const [paginicio, setPagInicio] = useState("");
-    const [miniMental, setMiniMental] = useState(true);
+    const [miniMental, setMiniMental] = useState(false);
     //gulag
     const [regPacientes, setRegPacientes] = useState(false);
 
     // Token
-<<<<<<< HEAD
     const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjk0LCJpYXQiOjE2NTE1ODk1NjAsImV4cCI6MTY1MTYwNDAwMH0.kA0FqbrNxdd6WgRGiFA2_nzSsN7OmDLiCNUN5Nx5440");
-=======
-    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjk0LCJpYXQiOjE2NTE1OTQ5NzYsImV4cCI6MTY1MTYwOTQxNn0.wwXrY0REiE4x_uQo5rCTieTUDecnQYrvgfXY_bz8Td4");
->>>>>>> e0ea6af83c4d56f229d25ee85221811f2f9aa7da
     localStorage.setItem("token", tokenAuth);
 
     return (
         <div class="bg-[#EEEEEE] h-screen w-full">
             <Logo roundedCenter={true}/>
-<<<<<<< HEAD
-
-=======
             {(miniMental && <MiniMental/>)}
->>>>>>> e0ea6af83c4d56f229d25ee85221811f2f9aa7da
             {(evalauaciones && <Evaluaciones/>)}
             {(validation && <Validation 
                 setValidation={setValidation}
