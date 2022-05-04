@@ -18,13 +18,13 @@ import UpdatePatient from "./components/UpdatePatient"
 
 function App() {
     //States patra el control del flujo
-    const [updatePatient, setUpdatePatient] = useState(true);
+    const [updatePatient, setUpdatePatient] = useState(false);
     const [evalauaciones, setEvaluaciones] = useState(false);
     const [logIn, setLogIn] = useState(false);
     const [recPassword, setRecPassword] = useState(false);
     const [regGeriatra, setRegGeriatra] = useState(false);
     const [validation, setValidation] = useState(false);
-    const [estadistics, setEstadistics] = useState(false);
+    const [estadistics, setEstadistics] = useState(true);
     const [validationMessage, setValidationMessage] = useState("");
     const [paginicio, setPagInicio] = useState("");
     const [miniMental, setMiniMental] = useState(false);
@@ -32,7 +32,7 @@ function App() {
     const [regPacientes, setRegPacientes] = useState(false);
 
     // Token
-    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjk0LCJpYXQiOjE2NTE2MTUwMjksImV4cCI6MTY1MTYyOTQ2OX0.qkdQka2i5m-EduX7m8ZGwDbLaEI2PdBpOgAh5gBg9hw");
+    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjk0LCJpYXQiOjE2NTE2OTQ2NDMsImV4cCI6MTY1MTcwOTA4M30.Ku-kTBZ_pNYEAG8d0gaPINcF4TBgSQSLRvPy7lcgV8g");
     localStorage.setItem("token", tokenAuth);
 
     return (

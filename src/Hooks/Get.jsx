@@ -1,32 +1,41 @@
-import {useEffect, useState} from 'react'
-import axios from 'axios'
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const Get = (URL, token) => {
+const Get = (URL, token, reqBody) => {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
 
-    const [data, setData] = useState(null);
-    const [error, setError] = useState(null);
+  const apiUrl = "https://geriatric-app.herokuapp.com";
+  const authAxios = axios.create({
+    baseURL: apiUrl,
+    headers: {
+      "x-access-token": token,
+    },
+  });
 
-    const apiUrl = "https://geriatric-app.herokuapp.com";
-    const authAxios = axios.create({
-        baseURL: apiUrl,
-        headers: {
-            "x-access-token": token
+  useEffect(() => {
+    async function getData() {
+      if (reqBody) {
+        try {
+            console.log(reqBody);
+          const response = await authAxios.get(URL, reqBody).then(res => res.data.response);
+          setData(response)
+        } catch (error) {
+          setError(error);
         }
-    });
-
-    useEffect(() => {
-        async function getData() {
-            try {
-              const response = await authAxios.get(URL);
-                setData(response.data.response);
-            } catch (error) {
-                setError(error);
-            }
+      } else {
+        try {
+          const response = await authAxios.get(URL);
+          setData(response.data.response);
+        } catch (error) {
+          setError(error);
         }
-        getData();
-    }, []);
+      }
+    }
+    getData();
+  }, []);
 
-    return [data, error, setData];
-}
+  return [data, error, setData];
+};
 
-export default Get
+export default Get;
