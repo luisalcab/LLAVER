@@ -32,7 +32,7 @@ function App() {
     const [regPacientes, setRegPacientes] = useState(false);
 
     // Token
-    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjEwNCwiaWF0IjoxNjUxNjc5MzExLCJleHAiOjE2NTE2OTM3NTF9.H6qdUH0G54QGrhuLm0qj4gNxWrBvUsc1J_fLOP_wIHk");
+    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjEwNCwiaWF0IjoxNjUxNjg0MjMzLCJleHAiOjE2NTE2OTg2NzN9.8uADTV6l6zMGEXVcsuAJ_tvMEr1UfwYrLToKG1grmdU");
     localStorage.setItem("token", tokenAuth);
 
     return (
