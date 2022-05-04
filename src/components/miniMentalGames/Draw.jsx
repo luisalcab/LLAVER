@@ -25,7 +25,8 @@ const Draw = () => {
         e.preventDefault();
         const data = unityContext.takeScreenshot("image/jpeg", 1.0);
         if (data !== null) {
-            debugBase64(data);
+            localStorage.setItem("Imagen", data);
+            debugBase64(localStorage.getItem("Imagen"))
         }
     }
     /* -------------------------------------------------- */

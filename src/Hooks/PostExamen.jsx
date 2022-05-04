@@ -5,7 +5,7 @@ import {useState} from 'react'
 const PostExamen = (Data, idConsulta, idPaciente, idExamen, token) => {
     const [error, setError] = useState(null);
 
-    const PostExamen = () => {
+    const PostExamen = async () => {
         try{
             return await axios({
                 url:`https://geriatric-app.herokuapp.com/consultaGeriatrica/obtenerExamen/${idConsulta}/${idPaciente}/${idExamen}`,

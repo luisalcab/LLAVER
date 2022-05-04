@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Draw from '../miniMentalGames/Draw.jsx';
 import Pencil from '../miniMentalGames/Pencil.jsx';
 import Clock from '../miniMentalGames/Clock.jsx';
@@ -8,8 +8,13 @@ const Cards = (props) => {
     const [id, setId] = useState(props.id);
     const [escolaridad, setEscolaridad] = useState(props.escolaridad);
     const [ids, setIds] = useState([4, 6, 7, 9]);
+    const [puntaje, setPuntaje] = useState(0);
 
     let puntos = Array.apply(null, Array(props.puntajeMaximo + 1)).map((x, i) => {return(i)});
+
+    useEffect(() => {
+        props.joinAnswers(puntaje,id);
+    },[props.submitted])
 
     const Display = (props) => {
         if(escolaridad <= 3){
@@ -24,7 +29,10 @@ const Cards = (props) => {
                         </p>
                         <Pencil/>
                         <Clock/>
-                        <select class="block w-52 text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 mt-5" name="points">
+                        <select
+                            class="block w-52 text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 mt-5" name="points"
+                            onChange={(e) => setPuntaje(e.target.value)}
+                            >
                             {puntos.map((point) => (
                                 <option value={point}>
                                     {point}
@@ -56,7 +64,11 @@ const Cards = (props) => {
                             <p className='text-gray-500 group-hover:text-white'>
                                 {props.pregunta}
                             </p>
-                            <select class="block w-52 text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 mt-5" name="points">
+                            <select 
+                                class="block w-52 text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 mt-5" name="points"
+                                onChange={(e) => setPuntaje(e.target.value)}
+                                
+                                >
                                 {puntos.map((point) => (
                                     <option value={point}>
                                         {point}
@@ -79,7 +91,10 @@ const Cards = (props) => {
                             {props.pregunta}
                         </p>
                         <Draw/>
-                        <select class="block w-52 text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 mt-5" name="points">
+                        <select 
+                            class="block w-52 text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 mt-5" name="points"
+                            onChange={(e) => setPuntaje(e.target.value)}            
+                            >
                             {puntos.map((point) => (
                                     <option value={point}>
                                         {point}
@@ -100,7 +115,10 @@ const Cards = (props) => {
                         </p>
                         <Pencil/>
                         <Clock/>
-                        <select class="block w-52 text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 mt-5" name="points">
+                        <select 
+                            class="block w-52 text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 mt-5" name="points"
+                            onChange={(e) => setPuntaje(e.target.value)}                            
+                            >
                             {puntos.map((point) => (
                                 <option value={point}>
                                     {point}
@@ -119,7 +137,10 @@ const Cards = (props) => {
                         <p className='text-gray-500 group-hover:text-white'>
                             {props.pregunta}
                         </p>
-                        <select class="block w-52 text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 mt-5" name="points">
+                        <select 
+                            class="block w-52 text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 mt-5" name="points"
+                            onChange={(e) => setPuntaje(e.target.value)}
+                            >
                             {puntos.map((point) => (
                                 <option value={point}>
                                     {point}

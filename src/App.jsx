@@ -18,7 +18,7 @@ import UpdatePatient from "./components/UpdatePatient"
 
 function App() {
     //States patra el control del flujo
-    const [updatePatient, setUpdatePatient] = useState(true);
+    const [updatePatient, setUpdatePatient] = useState(false);
     const [evalauaciones, setEvaluaciones] = useState(false);
     const [logIn, setLogIn] = useState(false);
     const [recPassword, setRecPassword] = useState(false);
@@ -27,17 +27,18 @@ function App() {
     const [estadistics, setEstadistics] = useState(false);
     const [validationMessage, setValidationMessage] = useState("");
     const [paginicio, setPagInicio] = useState("");
-    const [miniMental, setMiniMental] = useState(false);
+    const [miniMental, setMiniMental] = useState(true);
     //gulag
     const [regPacientes, setRegPacientes] = useState(false);
 
     // Token
-    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjk0LCJpYXQiOjE2NTE1ODk1NjAsImV4cCI6MTY1MTYwNDAwMH0.kA0FqbrNxdd6WgRGiFA2_nzSsN7OmDLiCNUN5Nx5440");
+    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjExNCwiaWF0IjoxNjUxNjE3MzI5LCJleHAiOjE2NTE2MzE3Njl9.Z6XbvAUheXZIvY3p1K9-rk4NoF13y9z-ky4azxIzqPM");
     localStorage.setItem("token", tokenAuth);
 
     return (
         <div class="bg-[#EEEEEE] h-screen w-full">
             <Logo roundedCenter={true}/>
+
             {(miniMental && <MiniMental/>)}
             {(evalauaciones && <Evaluaciones/>)}
             {(updatePatient && <UpdatePatient
