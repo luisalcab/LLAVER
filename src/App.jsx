@@ -38,6 +38,7 @@ function App() {
     return (
         <div class="bg-[#EEEEEE] h-screen w-full">
             <Logo roundedCenter={true}/>
+
             {(miniMental && <MiniMental/>)}
             {(evalauaciones && <Evaluaciones/>)}
             {(updatePatient && <UpdatePatient

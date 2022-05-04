@@ -5,6 +5,8 @@ import axios from 'axios';
 import Get from '../../Hooks/Get.jsx';
 import Textito from './textArea.jsx';
 import Spinner from "../Spinner";
+import PostExamen from '../../Hooks/PostExamen.jsx';
+import formato from "../../data/examFormat.json"
 
 const MiniMental = () => {
 
@@ -15,6 +17,12 @@ const MiniMental = () => {
     const [tokenAuth, setTokenAuth] = useState(localStorage.getItem("token"));
     const apiUrl = `/consultaGeriatrica/obtenerExamen/${idExam}`;	
     const [datos, error] = Get(apiUrl, tokenAuth);
+    const [postExamen] = PostExamen(formato, 544, 74, idExam, tokenAuth);
+    const [respuestas, setRepuestas] = useState(formato);
+
+    const joinAnswers = (puntaje, id) => {
+        formato.respuestasExamen[id-1].puntaje = puntaje;
+    }
 
     const Pregunta = () => {
 
@@ -27,17 +35,32 @@ const MiniMental = () => {
                             {section.nombreSeccion}
                         </h3>
                         {section.preguntas && section.preguntas.map((question) => (
-                            <Cards key={question.idPregunta}
-                            id={question.idPregunta}
-                            pregunta={question.pregunta}
-                            escolaridad = {escolaridad}
-                            puntajeMaximo = {question.puntajeMaximo}/>
+                            <Cards 
+                                key={question.idPregunta}
+                                id={question.idPregunta}
+                                pregunta={question.pregunta}
+                                escolaridad = {escolaridad}
+                                puntajeMaximo = {question.puntajeMaximo}
+                                joinAnswers = {joinAnswers}
+                                />
                         ))}
                     </div>
                 ))}
                 
             </div>
         )
+    }
+
+    const handleSubmit = async (e) =>{
+        e.preventDefault();
+
+        formato.respuestasExamen[8].respuesta = localStorage.getItem("Imagen") ?? ""
+        formato.notas = localStorage.getItem("notas") ?? ""
+        await postExamen() .then (response => {
+            console.log(response.data.response.data);
+        });
+
+        console.log(formato);
     }
 
     return (
@@ -50,7 +73,9 @@ const MiniMental = () => {
                     <h1 className='font-bold m-5'>
                         {datos.data.examn.nombreExamen}
                     </h1>
-                    <form>
+                    <form
+                        onSubmit={handleSubmit}
+                    >
                         <Pregunta/>
                         <div class="flex justify-center text-white">
                             <input

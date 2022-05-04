@@ -1,0 +1,71 @@
+{
+    "notas": "Esto es una nota",
+    "respuestasExamen": [
+        {
+            "idPregunta": 1,
+            "respuesta": "Respuesta1",
+            "puntaje": 5,
+            "imagen": 0
+        },
+        {
+            "idPregunta": 2,
+            "respuesta": "Respuesta2",
+            "puntaje": 4,
+            "imagen": 0
+        },
+        {
+            "idPregunta": 3,
+            "respuesta": "Respuesta3",
+            "puntaje": 1,
+            "imagen": 0
+        },
+        {
+            "idPregunta": 4,
+            "respuesta": "Respuesta4",
+            "puntaje": 3,
+            "imagen": 0
+        },
+        {
+            "idPregunta": 5,
+            "respuesta": "Respuesta5",
+            "puntaje": 1,
+            "imagen": 0
+        },
+        {
+            "idPregunta": 6,
+            "respuesta": "Respuesta6",
+            "puntaje": 1,
+            "imagen": 0
+        },
+        {
+            "idPregunta": 7,
+            "respuesta": "Respuesta7",
+            "puntaje": 1,
+            "imagen": 0
+        },
+        {
+            "idPregunta": 8,
+            "respuesta": "Respuesta8",
+            "puntaje": 0,
+            "imagen": 0
+        },
+        {
+            "idPregunta": 9,
+            "respuesta": "xD",
+            "puntaje": 0,
+            "imagen": 1
+        },
+        {
+            "idPregunta": 10,
+            "respuesta": "Respuesta10",
+            "puntaje": 2,
+            "imagen": 0
+        },
+        {
+            "idPregunta": 11,
+            "respuesta": "Respuesta11",
+            "puntaje": 1,
+            "imagen": 0
+        }
+          ]
+}

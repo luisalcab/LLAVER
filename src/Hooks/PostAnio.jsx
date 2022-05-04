@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import React from 'react'
+import axios from "axios"
+import {useEffect,useState} from 'react'
 
-const Get = (URL, token) => {
-  const [data, setData] = useState(null);
+const PostAnio = (URL,token,reqBody) => {
+    const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
   const apiUrl = "https://geriatric-app.herokuapp.com";
@@ -16,7 +17,7 @@ const Get = (URL, token) => {
   useEffect(() => {
     async function getData() {
         try {
-          const response = await authAxios.get(URL);
+          const response = await authAxios.post(URL,reqBody);
           setData(response.data.response);
         } catch (error) {
           setError(error);
@@ -28,4 +29,4 @@ const Get = (URL, token) => {
   return [data, error, setData];
 };
 
-export default Get;
+export default PostAnio

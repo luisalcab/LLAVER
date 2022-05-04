@@ -3,10 +3,13 @@ import React, {useState, useEffect} from 'react'
 const Notas = () => {
   
   const [text, setText] = useState("");
-  localStorage.setItem('notas', "");
 
   useEffect(() => {
-    localStorage.setItem('notas', text);
+    setText(localStorage.getItem('notas') ?? "");
+  },[])
+
+  useEffect(() => {
+      localStorage.setItem('notas', text);
   }, [text])
   
   return (

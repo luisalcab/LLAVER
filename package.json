@@ -1,6 +1,7 @@
 {
   "name": "llaver",
   "private": true,
+  "proxy": "http://localhost:3000",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
