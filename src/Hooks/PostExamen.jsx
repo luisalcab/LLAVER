@@ -10,7 +10,9 @@ const PostExamen = (Data, idConsulta, idPaciente, idExamen, token) => {
             return await axios({
                 url:`https://geriatric-app.herokuapp.com/consultaGeriatrica/obtenerExamen/${idConsulta}/${idPaciente}/${idExamen}`,
                 method: "post",
-                headers: {"x-access-token": token},
+                headers: {
+                    "Content-Type": "application/json",
+                    "x-access-token": token},
                 data: Data
             }).then(response => response);
         }catch(error){
