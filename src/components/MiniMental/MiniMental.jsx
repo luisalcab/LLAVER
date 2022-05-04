@@ -17,7 +17,7 @@ const MiniMental = () => {
     const [tokenAuth, setTokenAuth] = useState(localStorage.getItem("token"));
     const apiUrl = `/consultaGeriatrica/obtenerExamen/${idExam}`;	
     const [datos, error] = Get(apiUrl, tokenAuth);
-    const [submitted, setSubmitted] = useState(false);
+    const [postExamen] = PostExamen(formato, 493, 54, idExam, tokenAuth);
     const [respuestas, setRepuestas] = useState(formato);
 
     const joinAnswers = (puntaje, id) => {
@@ -42,7 +42,6 @@ const MiniMental = () => {
                                 escolaridad = {escolaridad}
                                 puntajeMaximo = {question.puntajeMaximo}
                                 joinAnswers = {joinAnswers}
-                                submitted = {submitted}
                                 />
                         ))}
                     </div>
@@ -55,11 +54,10 @@ const MiniMental = () => {
     const handleSubmit = (e) =>{
         e.preventDefault();
 
-        formato.respuestasExamen[9].respuesta = localStorage.getItem("Imagen") ?? "._."
-        PostExamen
+        formato.respuestasExamen[8].respuesta = localStorage.getItem("Imagen") ?? ""
+        formato.notas = localStorage.getItem("notas") ?? ""
 
-        setSubmitted(true);
-        console.log("XD");
+        console.log(formato);
     }
 
     return (
