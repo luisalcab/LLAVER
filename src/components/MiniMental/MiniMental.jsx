@@ -56,7 +56,7 @@ const MiniMental = () => {
         e.preventDefault();
 
         formato.respuestasExamen[9].respuesta = localStorage.getItem("Imagen") ?? "._."
-        await PostExamen
+        PostExamen
 
         setSubmitted(true);
         console.log("XD");
