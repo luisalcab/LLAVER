@@ -31,19 +31,20 @@ function App() {
     const [regPacientes, setRegPacientes] = useState(false);
 
     // Token
-    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjk0LCJpYXQiOjE2NTE3NjA4MTAsImV4cCI6MTY1MTc3NTI1MH0.q4CHYU4vAm0p_6-ZcGdgTm6HwHdzrDNj_r7aOb45F3w");
+    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjEwNCwiaWF0IjoxNjUxNzc4NTAzLCJleHAiOjE2NTE3OTI5NDN9.Ksfr4jzxE5LLWma9f3cVGegS6AgEPylY2UadphucedE");
     localStorage.setItem("token", tokenAuth);
 
     return (
         <div class="bg-[#EEEEEE] h-screen w-full">
             <Logo roundedCenter={true}/>
 
-            {(miniMental && <MiniMental/>)}
+            {(miniMental && <MiniMental
+                setMiniMental={setMiniMental}/>)}
             {(evalauaciones && <Evaluaciones
-            setevaluaciones={setEvaluaciones}
-            setHome={setPagInicio}
-            setLogout={setLogIn}
-            setEstadistics={setEstadistics}/>)}
+                setevaluaciones={setEvaluaciones}
+                setHome={setPagInicio}
+                setLogout={setLogIn}
+                setEstadistics={setEstadistics}/>)}
             {(validation && <Validation 
                 setValidation={setValidation}
                 pastComponent={setLogIn}
