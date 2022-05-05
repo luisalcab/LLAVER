@@ -31,8 +31,7 @@ function App() {
     const [regPacientes, setRegPacientes] = useState(false);
 
     // Token
-    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjk0LCJpYXQiOjE2NTE3NjA4MTAsImV4cCI6MTY1MTc3NTI1MH0.q4CHYU4vAm0p_6-ZcGdgTm6HwHdzrDNj_r7aOb45F3w");
-    localStorage.setItem("token", tokenAuth);
+    
 
     return (
         <div class="bg-[#EEEEEE] h-screen w-full">
@@ -49,6 +48,7 @@ function App() {
                 pastComponent={setLogIn}
             >{validationMessage}</Validation>)}
             {(logIn && <LogIn
+                setHome={setPagInicio}
                 setRecPassword={setRecPassword} 
                 setLogIn={setLogIn}
                 setRegGeriatra={setRegGeriatra}/>)}
