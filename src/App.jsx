@@ -18,13 +18,12 @@ import UpdatePatient from "./components/UpdatePatient"
 
 function App() {
     //States patra el control del flujo
-    const [updatePatient, setUpdatePatient] = useState(false);
-    const [evalauaciones, setEvaluaciones] = useState(false);
+    const [evalauaciones, setEvaluaciones] = useState(true);
     const [logIn, setLogIn] = useState(false);
     const [recPassword, setRecPassword] = useState(false);
     const [regGeriatra, setRegGeriatra] = useState(false);
     const [validation, setValidation] = useState(false);
-    const [estadistics, setEstadistics] = useState(true);
+    const [estadistics, setEstadistics] = useState(false);
     const [validationMessage, setValidationMessage] = useState("");
     const [paginicio, setPagInicio] = useState("");
     const [miniMental, setMiniMental] = useState(false);
@@ -32,7 +31,7 @@ function App() {
     const [regPacientes, setRegPacientes] = useState(false);
 
     // Token
-    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjk0LCJpYXQiOjE2NTE2OTQ2NDMsImV4cCI6MTY1MTcwOTA4M30.Ku-kTBZ_pNYEAG8d0gaPINcF4TBgSQSLRvPy7lcgV8g");
+    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjk0LCJpYXQiOjE2NTE3NjA4MTAsImV4cCI6MTY1MTc3NTI1MH0.q4CHYU4vAm0p_6-ZcGdgTm6HwHdzrDNj_r7aOb45F3w");
     localStorage.setItem("token", tokenAuth);
 
     return (
@@ -40,10 +39,11 @@ function App() {
             <Logo roundedCenter={true}/>
 
             {(miniMental && <MiniMental/>)}
-            {(evalauaciones && <Evaluaciones/>)}
-            {(updatePatient && <UpdatePatient
-                setUpdatePatient={setUpdatePatient}
-                setEvaluaciones={setEvaluaciones}/>)}
+            {(evalauaciones && <Evaluaciones
+            setevaluaciones={setEvaluaciones}
+            setHome={setPagInicio}
+            setLogout={setLogIn}
+            setEstadistics={setEstadistics}/>)}
             {(validation && <Validation 
                 setValidation={setValidation}
                 pastComponent={setLogIn}

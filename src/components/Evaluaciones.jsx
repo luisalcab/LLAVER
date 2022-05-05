@@ -9,7 +9,7 @@ import { useState } from "react";
 import Spinner from "./Spinner";
 import moment from "moment";
 
-const Evaluaciones = () => {
+const Evaluaciones = ({setevaluaciones,setHome,setEstadistics,setLogout}) => {
   const [tokenAuth, setTokenAuth] = useState(localStorage.getItem("token"));
   const [coincidence, setCoincidence] = useState("");
   const apiUrl = `/paciente/mostarTodosPacientes`;
@@ -26,7 +26,7 @@ const Evaluaciones = () => {
     <>
       {datos ? (
         <div class="bg-[#EEEEEE] w-screen h-screen overflow-auto">
-          <Sidebar />
+          <Sidebar setLogin={setLogout} setHome={setHome} setEstadistics={setEstadistics}/>
           <div class="text-3xl text-center font-bold">
             <br />
             Evaluaciones
@@ -75,13 +75,10 @@ const Evaluaciones = () => {
                 <p class=" w-1/12"></p>
               </div>
               <div class="px-2 pt-2 h-4/5 flex-initial overflow-y-auto resize-none">
-                {datos.map((paciente) => (
+              {datos.map((paciente) => (
                   <PatientCard
-                    nombre={paciente.nombre + " " + paciente.apellido}
-                    fecha={moment(paciente.fechaNacimiento).format(
-                      "DD/MM/YYYY"
-                    )}
-                    ID={paciente.idPaciente}
+                    setevaluaciones={setevaluaciones}
+                    paciente={paciente}
                     token={tokenAuth}
                   />
                 ))}

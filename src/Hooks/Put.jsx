@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const Put = (URL, Token, ID, reqBody) => {
+const Put = (URL, Token, ID) => {
   const [error, setError] = useState(null);
 
   const apiUrl = "https://geriatric-app.herokuapp.com";
@@ -13,7 +13,7 @@ const Put = (URL, Token, ID, reqBody) => {
   });
   console.log(`${apiUrl}/${URL}/${ID}`);
 
-  const Call = async () => {
+  const Call = async (reqBody) => {
     try {
       if (reqBody) {
         return await authAxios
