@@ -31,13 +31,26 @@ function App() {
     const [regPacientes, setRegPacientes] = useState(false);
 
     // Token
+<<<<<<< Updated upstream
     const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjk0LCJpYXQiOjE2NTE3NjA4MTAsImV4cCI6MTY1MTc3NTI1MH0.q4CHYU4vAm0p_6-ZcGdgTm6HwHdzrDNj_r7aOb45F3w");
+=======
+    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjEwNCwiaWF0IjoxNjUxNzc0MDc5LCJleHAiOjE2NTE3ODg1MTl9.EBCnzYk46NmdKmwWEIJgfitgsRJMss2VdaBzfnwhYC8");
+>>>>>>> Stashed changes
     localStorage.setItem("token", tokenAuth);
 
     return (
         <div class="bg-[#EEEEEE] h-screen w-full">
             <Logo roundedCenter={true}/>
 
+<<<<<<< Updated upstream
+=======
+            {(miniMental && <MiniMental
+                setMiniMental={setMiniMental}/>)}
+            {(evalauaciones && <Evaluaciones/>)}
+            {(updatePatient && <UpdatePatient
+                setUpdatePatient={setUpdatePatient}
+                setEvaluaciones={setEvaluaciones}/>)}
+>>>>>>> Stashed changes
             {(miniMental && <MiniMental/>)}
             {(evalauaciones && <Evaluaciones
             setevaluaciones={setEvaluaciones}
