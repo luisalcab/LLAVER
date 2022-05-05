@@ -1,11 +1,12 @@
 import React from 'react'
 import {useState} from 'react'
 import Error from './Error';
+import PostLogin from '../Hooks/PostLogin';
 
 const LogIn = ({setRegGeriatra, setRecPassword, setLogIn}) => {
-    const [nombre, setNombre] = useState("");
-    const [apellido, setApellido] = useState("");
+    const [correo, setCorreo] = useState("");
     const [password, setPassword] = useState("");
+    const [Call] = PostLogin();
     const [err, setErr] = useState(false);
 
     //Functions
@@ -13,12 +14,15 @@ const LogIn = ({setRegGeriatra, setRecPassword, setLogIn}) => {
         e.preventDefault();
 
         //Validamos las inputs
-        if([nombre,apellido,password].includes("")){
+        if([correo,password].includes("")){
             //Activamos el mensaje de error por el tiempo especificado
             setErr(true);
             setTimeout(() => setErr(false),3000)
 
             return;
+        }
+        else{
+            Call({'email':correo,'password':password}).then((res) => {console.log(res)});
         }
 
         //Mandamos datos para guardar
@@ -46,27 +50,15 @@ const LogIn = ({setRegGeriatra, setRecPassword, setLogIn}) => {
             <div>
                 <label
                     htmlFor="nombre"
-                    class={`block mx-5 ${(err & nombre == "") ? 'text-red-700' : ""}`}
-                    >Nombre(s)</label>
+                    class={`block mx-5 ${(err & correo == "") ? 'text-red-700' : ""}`}
+                    >Correo</label>
                 <input
-                    id="nombre"
-                    type="text"
-                    placeholder="Ej: Francisco"
+                    id="correo"
+                    type="email"
+                    value={correo}
+                    placeholder="Ej: Francisco@gmail.com"
                     class="rounded-br-full border mx-5 w-4/5"
-                    onChange={(e) => setNombre(e.target.value)}
-                />
-            </div>
-            <div>
-                <label
-                    htmlFor="apellido"
-                    class={`block mx-5 ${(err & apellido == "") ? 'text-red-700' : ""}`}
-                    >Apellidos</label>
-                <input
-                    id="apellido"
-                    type="text"
-                    placeholder="Ej:    García"
-                    class="rounded-br-full border mx-5 w-4/5"
-                    onChange={(e) => setApellido(e.target.value)}
+                    onChange={(e) => setCorreo(e.target.value)}
                 />
             </div>
             <div>
@@ -77,6 +69,7 @@ const LogIn = ({setRegGeriatra, setRecPassword, setLogIn}) => {
                 <input
                     id="contraseña"
                     type="password"
+                    value={password}
                     class="rounded-br-full border mx-5 w-4/5"
                     onChange={(e) => setPassword(e.target.value)}
                 />
