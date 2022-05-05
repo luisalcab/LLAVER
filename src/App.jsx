@@ -18,8 +18,8 @@ import UpdatePatient from "./components/UpdatePatient"
 
 function App() {
     //States patra el control del flujo
-    const [evalauaciones, setEvaluaciones] = useState(false);
-    const [logIn, setLogIn] = useState(true);
+    const [evalauaciones, setEvaluaciones] = useState(true);
+    const [logIn, setLogIn] = useState(false);
     const [recPassword, setRecPassword] = useState(false);
     const [regGeriatra, setRegGeriatra] = useState(false);
     const [validation, setValidation] = useState(false);
