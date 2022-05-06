@@ -3,37 +3,29 @@ import Logo from "./components/Logo"
 import LogIn from "./components/LogIn"
 import RecPassword from "./components/RecPassword"
 import RegGeriatra from "./components/RegGeriatra"
-import Card from "./components/Card"
-import Error from "./components/Error"
-import Draw from "./components/miniMentalGames/Draw"
-import Pencil from "./components/miniMentalGames/Pencil"
-import Clock from "./components/miniMentalGames/Clock"
 import RegPacientes from "./components/RegPacientes"
 import Validation from "./components/Validation"
 import Estadistics from "./components/Estadistics"
 import PagInicio from "./components/PagInicio"
 import Evaluaciones from "./components/Evaluaciones"
 import MiniMental from "./components/MiniMental/MiniMental"
-import UpdatePatient from "./components/UpdatePatient"
 
 function App() {
     //States patra el control del flujo
     const [evalauaciones, setEvaluaciones] = useState(false);
-    const [logIn, setLogIn] = useState(false);
+    const [logIn, setLogIn] = useState(true);
+
     const [recPassword, setRecPassword] = useState(false);
     const [regGeriatra, setRegGeriatra] = useState(false);
     const [validation, setValidation] = useState(false);
     const [estadistics, setEstadistics] = useState(false);
     const [validationMessage, setValidationMessage] = useState("");
-    const [paginicio, setPagInicio] = useState("");
-    const [miniMental, setMiniMental] = useState(true);
+    const [paginicio, setPagInicio] = useState(false);
+    const [miniMental, setMiniMental] = useState(false);
     const [fromMini, setFromMini] = useState(false);
     //gulag
-    const [regPacientes, setRegPacientes] = useState(false);
+    const [regPacientes, setRegPacientes] = useState(true);
 
-    // Token
-    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjEyNCwiaWF0IjoxNjUxNzk2MjA3LCJleHAiOjE2NTE4MTA2NDd9.d92o76vWMY2mwnHfwmZUvUuVS8tJ6wOm1qHREXa54jM");
-    localStorage.setItem("token", tokenAuth);
 
     return (
         <div class="bg-[#EEEEEE] h-screen w-full">
@@ -54,6 +46,7 @@ function App() {
                 pastComponent={fromMini ? setPagInicio : setLogIn}
             >{validationMessage}</Validation>)}
             {(logIn && <LogIn
+                setHome={setPagInicio}
                 setRecPassword={setRecPassword} 
                 setLogIn={setLogIn}
                 setRegGeriatra={setRegGeriatra}/>)}
@@ -68,8 +61,11 @@ function App() {
                 setValidationMessage={setValidationMessage}
                 setLogin={setLogIn}/>)}
             {(regPacientes && <RegPacientes
+                setfrommini={setFromMini}
                 setRegpacientes={setRegPacientes}
-                setlogin={setLogIn}/>)}
+                setlogin={setLogIn}
+                setValidationMessage={setValidationMessage}
+                setValidation={setValidation}/>)}
             {(paginicio && <PagInicio
                 setPaginicio={setPagInicio}
                 setLogout={setLogIn}

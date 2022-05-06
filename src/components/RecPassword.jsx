@@ -60,12 +60,12 @@ const RecPassword = ({setRecPassword, setValidation, setValidationMessage, setLo
                     <label
                         htmlFor="Nombre"
                         class="block mx-5">
-                        Nombre*
+                        Correo*
                     </label>
                     <input
                         id="Nombre"
-                        type="text"
-                        placeholder="Ej: Francisco García"
+                        type="email"
+                        placeholder="Ej: filimino@gmail.com"
                         class="rounded-br-full border mx-5 w-4/5"
                         value={nombre}
                         onChange = {(e) => setNombre(e.target.value)} 
