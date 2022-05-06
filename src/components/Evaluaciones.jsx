@@ -9,7 +9,7 @@ import { useState } from "react";
 import Spinner from "./Spinner";
 import moment from "moment";
 
-const Evaluaciones = ({setevaluaciones,setHome,setEstadistics,setLogout}) => {
+const Evaluaciones = ({setevaluaciones,setHome,setEstadistics,setLogout, setMiniMental}) => {
   const [tokenAuth, setTokenAuth] = useState(localStorage.getItem("token"));
   const [coincidence, setCoincidence] = useState("");
   const apiUrl = `/paciente/mostarTodosPacientes`;
@@ -96,6 +96,8 @@ const Evaluaciones = ({setevaluaciones,setHome,setEstadistics,setLogout}) => {
                 text={" MINIMENTAL"}
                 data={" Examen Mínimo de Estado Mental"}
                 resumen={true}
+                componentePrevio={setevaluaciones}
+                componenteSiguiente={setMiniMental}
               />{" "}
             </div>
             <div>

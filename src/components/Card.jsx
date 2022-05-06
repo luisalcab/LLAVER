@@ -1,8 +1,9 @@
 import React from 'react'
 
-const Card = ({resumen,data,text}) => {
+const Card = ({resumen,data,text,componenteSiguiente,componentePrevio}) => {
     const handleClick = () =>{
-        console.log("XD")
+        componenteSiguiente(true);
+        componentePrevio(false);
     }
 
     return (

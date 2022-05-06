@@ -30,7 +30,7 @@ const PatientCard = ({ setevaluaciones, paciente, token }) => {
         />
       )}
       <div class="flex flex-row justify-around text-center bg-zinc-300 rounded-xl mb-1">
-        <div class="w-5/12"> {paciente.nombre + " " + paciente.apellido} </div>
+        <div class="w-5/12" onClick={() => {localStorage.setItem("IDPatient", paciente.idPaciente);console.log(localStorage.getItem("IDPatient"))}}> {paciente.nombre + " " + paciente.apellido} </div>
         <div class="w-5/12">
           {" "}
           {moment(paciente.fechaNacimiento).format("DD/MM/YYYY")}{" "}
