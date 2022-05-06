@@ -21,7 +21,7 @@ function App() {
     const [evalauaciones, setEvaluaciones] = useState(false);
     const [logIn, setLogIn] = useState(false);
     const [recPassword, setRecPassword] = useState(false);
-    const [regGeriatra, setRegGeriatra] = useState(true);
+    const [regGeriatra, setRegGeriatra] = useState(false);
     const [validation, setValidation] = useState(false);
     const [estadistics, setEstadistics] = useState(false);
     const [validationMessage, setValidationMessage] = useState("");
