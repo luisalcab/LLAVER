@@ -2,10 +2,10 @@ import React from 'react'
 import axios from "axios"
 import {useState} from 'react'
 
-const PostExamen = (Data, idConsulta, idPaciente, idExamen, token) => {
+const PostExamen = () => {
     const [error, setError] = useState(null);
 
-    const PostExamen = async () => {
+    const PostExamen = async (Data, idConsulta, idPaciente, idExamen, token) => {
         try{
             return await axios({
                 url:`https://geriatric-app.herokuapp.com/consultaGeriatrica/obtenerExamen/${idConsulta}/${idPaciente}/${idExamen}`,

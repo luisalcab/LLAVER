@@ -1,8 +1,8 @@
 import React from 'react'
 import axios from 'axios';
 
-const GetCalificacion = (idConsulta, idCliente, idExamen, token) => {
-    const GetCal = async () => {
+const GetCalificacion = () => {
+    const GetCal = async (idConsulta, idCliente, idExamen, token) => {
         try{
             return await axios({
                 url:`https://geriatric-app.herokuapp.com/estadistica/obtenerTotalExamem/${idConsulta}/${idCliente}/${idExamen}`,

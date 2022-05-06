@@ -11,13 +11,14 @@ import formato from "../../data/examFormat.json"
 import CrearConsulta from '../../Hooks/CrearConsulta.jsx';
 import consultaFormat from "../../data/consultaFormat.json"
 
-const MiniMental = ({setMiniMental, setValidation, setValidationMessage, setFromMini, idPaciente}) => {
+const MiniMental = ({setMiniMental, setValidation, setValidationMessage, setFromMini}) => {
 
     const [escolaridad, setEscolaridad] = useState(4);
     const [idExam, setIdExam] = useState(1);
     const [resp, setResp] = useState("");
     const [total, setTotal] = useState(0);
     const [idConsulta, setIdConsulta] = useState();
+    const [idPaciente, setIdPaciente] = useState(parseInt(localStorage.getItem("IDPatient")));
 
 
     // Conexión con el servidor
@@ -26,20 +27,17 @@ const MiniMental = ({setMiniMental, setValidation, setValidationMessage, setFrom
     const [datos, error] = Get(apiUrl, tokenAuth);
 
     //CustomHooks para las consultas a la api
-    const [postExamen] = PostExamen(formato, 1234, 74, idExam, tokenAuth);
-    const [GetTotal] = GetCalificacion(1234,74,idExam,tokenAuth);
+    const [postExamen] = PostExamen();
+    const [GetTotal] = GetCalificacion();
     const [crearConsulta] = CrearConsulta(consultaFormat, tokenAuth);
 
-    useEffect(() => {
-        /*
+    useEffect(async () => {
         consultaFormat.fechaConsulta = new Date().toLocaleDateString("fr-CA");
         consultaFormat.idPaciente = idPaciente;
         await crearConsulta().then ( async (response) => {
-            console.log(response.data.response.data);
-            setIdConsulta(response.data.response.data);
+            console.log(response);
+            setIdConsulta(response.data.response.data.idConsulta);
         })
-        */
-       console.log("GetIDConsulta")
     }, [])
 
     useEffect(() => {
@@ -80,16 +78,19 @@ const MiniMental = ({setMiniMental, setValidation, setValidationMessage, setFrom
     const handleSubmit = async (e) =>{
         e.preventDefault();
 
+        console.log(idPaciente);
+        console.log(idConsulta);
+
         //Preparamos el json
         formato.respuestasExamen[8].respuesta = localStorage.getItem("Imagen") ?? ""
         formato.notas = localStorage.getItem("notas") ?? 'Nota vacia'
 
         //Hace el post del json ya listo
-        await postExamen().then (async (response) => {
+        await postExamen(formato, idConsulta, idPaciente, idExam, tokenAuth).then (async (response) => {
                 console.log(response.data.response.data);
                 setResp(response.data.response.data);
             //Obtenemos la calificacion total
-            await GetTotal().then ( async (response) => {
+            await GetTotal(idConsulta, idPaciente,idExam,tokenAuth).then ( async (response) => {
                 console.log(response.data.response.data);
                 setTotal(response.data.response.data);
             })
