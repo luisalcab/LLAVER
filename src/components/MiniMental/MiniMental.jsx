@@ -8,11 +8,17 @@ import Spinner from "../Spinner";
 import PostExamen from '../../Hooks/PostExamen.jsx';
 import GetCalificacion from '../../Hooks/GetCalificacion.jsx';
 import formato from "../../data/examFormat.json"
+import CrearConsulta from '../../Hooks/CrearConsulta.jsx';
+import consultaFormat from "../../data/consultaFormat.json"
 
-const MiniMental = ({setMiniMental}) => {
+const MiniMental = ({setMiniMental, setValidation, setValidationMessage, setFromMini, idPaciente}) => {
 
     const [escolaridad, setEscolaridad] = useState(4);
     const [idExam, setIdExam] = useState(1);
+    const [resp, setResp] = useState("");
+    const [total, setTotal] = useState(0);
+    const [idConsulta, setIdConsulta] = useState();
+
 
     // Conexión con el servidor
     const [tokenAuth, setTokenAuth] = useState(localStorage.getItem("token"));
@@ -20,8 +26,23 @@ const MiniMental = ({setMiniMental}) => {
     const [datos, error] = Get(apiUrl, tokenAuth);
 
     //CustomHooks para las consultas a la api
-    const [postExamen] = PostExamen(formato, 654, 74, idExam, tokenAuth);
-    const [GetTotal] = GetCalificacion(654,74,idExam,tokenAuth);
+    const [postExamen] = PostExamen(formato, 1084, 74, idExam, tokenAuth);
+    const [GetTotal] = GetCalificacion(1084,74,idExam,tokenAuth);
+    const [crearConsulta] = CrearConsulta(consultaFormat, tokenAuth);
+
+    useEffect(() => {
+        /*
+        consultaFormat.fechaConsulta = new Date().toLocaleDateString("fr-CA");
+        consultaFormat.idPaciente = idPaciente;
+        await crearConsulta().then ( async (response) => {
+            console.log(response.data.response.data);
+            setIdConsulta(response.data.response.data);
+        })
+        */
+       console.log("GetIDConsulta")
+    }, [])
+
+
 
     const joinAnswers = (puntaje, id) => {
         formato.respuestasExamen[id-1].puntaje = puntaje;
@@ -59,22 +80,25 @@ const MiniMental = ({setMiniMental}) => {
 
         //Preparamos el json
         formato.respuestasExamen[8].respuesta = localStorage.getItem("Imagen") ?? ""
-        formato.notas = localStorage.getItem("notas") ?? ""
+        formato.notas = localStorage.getItem("notas") ?? 'Nota vacia'
 
         //Hace el post del json ya listo
-        await postExamen().then (response => {
-            console.log(response.data.response.data);
-        }).then(() => localStorage.removeItem("notas"));
-
-        //Obtenemos la calificacion total
-        await GetTotal().then (response => {
-            console.log(response);
-        });
-
-        //Regresamos al menu
-        setMiniMental(false);
-
-        console.log(formato);
+        await postExamen().then (async (response) => {
+                console.log(response.data.response.data);
+                setResp(response.data.response.data);
+            //Obtenemos la calificacion total
+            await GetTotal().then ( async (response) => {
+                setTotal(response.data.response.data)
+                console.log(response.data.response.data)
+            })
+        }).then(() =>{
+            setMiniMental(false);
+            setFromMini(true);
+            setValidation(true);
+            console.log(resp);
+            console.log(total);
+            setValidationMessage(`${resp} \n Tu calificación es de ${total}`);
+            localStorage.removeItem("notas")});
     }
 
     return (

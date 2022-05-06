@@ -13,7 +13,7 @@ import MiniMental from "./components/MiniMental/MiniMental"
 function App() {
     //States patra el control del flujo
     const [evalauaciones, setEvaluaciones] = useState(false);
-    const [logIn, setLogIn] = useState(true);
+    const [logIn, setLogIn] = useState(false);
     const [recPassword, setRecPassword] = useState(false);
     const [regGeriatra, setRegGeriatra] = useState(false);
     const [validation, setValidation] = useState(false);
@@ -21,19 +21,24 @@ function App() {
     const [validationMessage, setValidationMessage] = useState("");
     const [paginicio, setPagInicio] = useState(false);
     const [miniMental, setMiniMental] = useState(false);
+    const [fromMini, setFromMini] = useState(false);
     //gulag
-    const [regPacientes, setRegPacientes] = useState(false);
+    const [regPacientes, setRegPacientes] = useState(true);
 
     // Token
     const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjEwNCwiaWF0IjoxNjUxNzkzMDYzLCJleHAiOjE2NTE4MDc1MDN9.L1goXhxXdXHutnFo_yDA6BZN7LskLXNjY9Vk2BF_Keg");
     localStorage.setItem("token", tokenAuth);
+    localStorage.setItem("idDoctor","134");
 
     return (
         <div class="bg-[#EEEEEE] h-screen w-full">
             <Logo roundedCenter={true}/>
 
             {(miniMental && <MiniMental
-                setMiniMental={setMiniMental}/>)}
+                setMiniMental={setMiniMental}
+                setFromMini = {setFromMini}
+                setValidation = {setValidation}
+                setValidationMessage = {setValidationMessage}/>)}
             {(evalauaciones && <Evaluaciones
                 setevaluaciones={setEvaluaciones}
                 setHome={setPagInicio}
@@ -41,7 +46,7 @@ function App() {
                 setEstadistics={setEstadistics}/>)}
             {(validation && <Validation 
                 setValidation={setValidation}
-                pastComponent={setLogIn}
+                pastComponent={fromMini ? setPagInicio : setLogIn}
             >{validationMessage}</Validation>)}
             {(logIn && <LogIn
                 setRecPassword={setRecPassword} 
@@ -58,8 +63,11 @@ function App() {
                 setValidationMessage={setValidationMessage}
                 setLogin={setLogIn}/>)}
             {(regPacientes && <RegPacientes
+                setfrommini={setFromMini}
                 setRegpacientes={setRegPacientes}
-                setlogin={setLogIn}/>)}
+                setlogin={setLogIn}
+                setValidationMessage={setValidationMessage}
+                setValidation={setValidation}/>)}
             {(paginicio && <PagInicio
                 setPaginicio={setPagInicio}
                 setLogout={setLogIn}

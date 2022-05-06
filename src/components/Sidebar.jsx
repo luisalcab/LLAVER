@@ -7,23 +7,26 @@ import { IconContext } from "react-icons"
 import { AiOutlineHome } from 'react-icons/ai'
 import { AiOutlineBarChart } from 'react-icons/ai'
 
-const Sidebar = ({setLogin, setEstadistics, setHome}) => {
+const Sidebar = ({setLogin, setEstadistics, setHome,setEvaluaciones}) => {
     const Home = () => {
         setLogin(false);
         setEstadistics(false);
         setHome(true);
+        setEvaluaciones(false);
     }
 
     const Estadistics = () => {
         setLogin(false);
         setEstadistics(true);
         setHome(false);
+        setEvaluaciones(false);
     }
 
     const Logout = () => {
         setLogin(true);
         setEstadistics(false);
         setHome(false);
+        setEvaluaciones(false);
     }
     return(
         <div class="absolute top-0 left-0 z-50 flex flex-col place-content-between items-end bg-black w-24 min-h-screen text-white">
