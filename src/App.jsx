@@ -26,7 +26,8 @@ function App() {
     const [estadistics, setEstadistics] = useState(false);
     const [validationMessage, setValidationMessage] = useState("");
     const [paginicio, setPagInicio] = useState("");
-    const [miniMental, setMiniMental] = useState(false);
+    const [miniMental, setMiniMental] = useState(true);
+    const [fromMini, setFromMini] = useState(false);
     //gulag
     const [regPacientes, setRegPacientes] = useState(true);
 
@@ -40,7 +41,10 @@ function App() {
             <Logo roundedCenter={true}/>
 
             {(miniMental && <MiniMental
-                setMiniMental={setMiniMental}/>)}
+                setMiniMental={setMiniMental}
+                setFromMini = {setFromMini}
+                setValidation = {setValidation}
+                setValidationMessage = {setValidationMessage}/>)}
             {(evalauaciones && <Evaluaciones
                 setevaluaciones={setEvaluaciones}
                 setHome={setPagInicio}
@@ -48,7 +52,7 @@ function App() {
                 setEstadistics={setEstadistics}/>)}
             {(validation && <Validation 
                 setValidation={setValidation}
-                pastComponent={setLogIn}
+                pastComponent={fromMini ? setPagInicio : setLogIn}
             >{validationMessage}</Validation>)}
             {(logIn && <LogIn
                 setRecPassword={setRecPassword} 
@@ -65,6 +69,7 @@ function App() {
                 setValidationMessage={setValidationMessage}
                 setLogin={setLogIn}/>)}
             {(regPacientes && <RegPacientes
+                setfrommini={setFromMini}
                 setRegpacientes={setRegPacientes}
                 setlogin={setLogIn}
                 setValidationMessage={setValidationMessage}
