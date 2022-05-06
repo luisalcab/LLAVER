@@ -24,7 +24,7 @@ function App() {
     const [miniMental, setMiniMental] = useState(false);
     const [fromMini, setFromMini] = useState(false);
     //gulag
-    const [regPacientes, setRegPacientes] = useState(true);
+    const [regPacientes, setRegPacientes] = useState(false);
 
 
     return (
@@ -40,7 +40,8 @@ function App() {
                 setevaluaciones={setEvaluaciones}
                 setHome={setPagInicio}
                 setLogout={setLogIn}
-                setEstadistics={setEstadistics}/>)}
+                setEstadistics={setEstadistics}
+                setMiniMental={setMiniMental}/>)}
             {(validation && <Validation 
                 setValidation={setValidation}
                 pastComponent={fromMini ? setPagInicio : setLogIn}
@@ -63,13 +64,15 @@ function App() {
             {(regPacientes && <RegPacientes
                 setfrommini={setFromMini}
                 setRegpacientes={setRegPacientes}
-                setlogin={setLogIn}
+                setlogin={setPagInicio}
                 setValidationMessage={setValidationMessage}
                 setValidation={setValidation}/>)}
             {(paginicio && <PagInicio
                 setPaginicio={setPagInicio}
                 setLogout={setLogIn}
-                setestadistics={setEstadistics}/>)} 
+                setestadistics={setEstadistics}
+                setEvaluaciones={setEvaluaciones}
+                setRegPacientes={setRegPacientes}/>)} 
             {(estadistics && <Estadistics
                 setHome={setPagInicio}
                 setLogout={setLogIn}

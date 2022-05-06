@@ -5,7 +5,7 @@ import { useState } from "react";
 import Get from "../Hooks/Get"
 import Spinner from "./Spinner";
 
-const PagInicio = ({setPaginicio, setestadistics, setLogout}) =>{
+const PagInicio = ({setPaginicio, setestadistics, setLogout,setEvaluaciones,setRegPacientes}) =>{
     const [tokenAuth, setTokenAuth] = useState(localStorage.getItem("token"));
     const [consultas, error, setData] = Get("/consultaGeriatrica/obtenerConsultaGeriatrica/Pendiente", tokenAuth);
 
@@ -30,7 +30,7 @@ const PagInicio = ({setPaginicio, setestadistics, setLogout}) =>{
                                 data={`* NO. Pacientes: ${consultas.data.length}
                                     *Futuras Citas:
                                         *Juan
-                                        *Renet`}    
+                                        *Renet`}
                             />
                             <Card
                                 resumen={false}
@@ -38,7 +38,7 @@ const PagInicio = ({setPaginicio, setestadistics, setLogout}) =>{
                                 data={`* NO. Pacientes
                                     *Futuras Citas:
                                         *Juan
-                                        *Renet`}    
+                                        *Renet`}
                             />
                             <Card
                                 resumen={false}
@@ -46,7 +46,9 @@ const PagInicio = ({setPaginicio, setestadistics, setLogout}) =>{
                                 data={`* NO. Pacientes
                                     *Futuras Citas:
                                         *Juan
-                                        *Renet`}    
+                                        *Renet`}
+                                componentePrevio={setPaginicio}
+                                componenteSiguiente={setRegPacientes}
                             />
                             <Card
                                 resumen={false} 
@@ -54,7 +56,9 @@ const PagInicio = ({setPaginicio, setestadistics, setLogout}) =>{
                                 data={`* NO. Pacientes
                                     *Futuras Citas:
                                         *Juan
-                                        *Renet`}    
+                                        *Renet`}
+                                componenteSiguiente={setEvaluaciones}
+                                componentePrevio={setPaginicio}
                             />
                         </div>
 

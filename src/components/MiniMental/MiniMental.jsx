@@ -11,7 +11,7 @@ import formato from "../../data/examFormat.json"
 import CrearConsulta from '../../Hooks/CrearConsulta.jsx';
 import consultaFormat from "../../data/consultaFormat.json"
 
-const MiniMental = ({setMiniMental, setValidation, setValidationMessage, setFromMini, idPaciente}) => {
+const MiniMental = ({setMiniMental, setValidation, setValidationMessage, setFromMini}) => {
 
     const [escolaridad, setEscolaridad] = useState(4);
     const [idExam, setIdExam] = useState(1);
@@ -22,6 +22,7 @@ const MiniMental = ({setMiniMental, setValidation, setValidationMessage, setFrom
 
     // Conexión con el servidor
     const [tokenAuth, setTokenAuth] = useState(localStorage.getItem("token"));
+    const [idPaciente, setidPaciente] = useState(localStorage.getItem("IDPatient"))
     const apiUrl = `/consultaGeriatrica/obtenerExamen/${idExam}`;	
     const [datos, error] = Get(apiUrl, tokenAuth);
 
