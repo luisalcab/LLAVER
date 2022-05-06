@@ -1,30 +1,72 @@
 import react from "react";
 import Sidebar from "./Sidebar"
-import Logo from "./Logo"
+import Card from "./Card";
+import { useState } from "react";
+import Get from "../Hooks/Get"
+import Spinner from "./Spinner";
 
 const PagInicio = ({setPaginicio, setestadistics, setLogout}) =>{
+    const [tokenAuth, setTokenAuth] = useState(localStorage.getItem("token"));
+    const [consultas, error, setData] = Get("/consultaGeriatrica/obtenerConsultaGeriatrica/Pendiente", tokenAuth);
+
+    console.log(consultas)
+
     return(
-        <div class="bg-[#EEEEEE] w-screen h-screen">      
+        <>
+            {consultas ? (
+                <div class="bg-[#EEEEEE] w-screen h-screen">
+                    <Sidebar
+                        setHome={setPaginicio} 
+                        setEstadistics={setestadistics}
+                        setLogin={setLogout}/>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <div class="text-xl font-medium border-b-2 border-black my-10 pt-10">
+                            Hola Dra. Gabriela
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 text-center place-content-center mx-auto w-full">
+                            <Card
+                                resumen={true}
+                                text={"Resumen"}
+                                data={`* NO. Pacientes: ${consultas.data.length}
+                                    *Futuras Citas:
+                                        *Juan
+                                        *Renet`}    
+                            />
+                            <Card
+                                resumen={false}
+                                text={"Historial Medico"}
+                                data={`* NO. Pacientes
+                                    *Futuras Citas:
+                                        *Juan
+                                        *Renet`}    
+                            />
+                            <Card
+                                resumen={false}
+                                text={"Alta Pacientes"}
+                                data={`* NO. Pacientes
+                                    *Futuras Citas:
+                                        *Juan
+                                        *Renet`}    
+                            />
+                            <Card
+                                resumen={false} 
+                                text={"Realizar Examen"}
+                                data={`* NO. Pacientes
+                                    *Futuras Citas:
+                                        *Juan
+                                        *Renet`}    
+                            />
+                        </div>
 
-            
-            <Sidebar
-            setHome={setPaginicio} 
-            setEstadistics={setestadistics}
-            setLogin={setLogout}/>
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <div class="m-10">
-                    Hola Dra. Gabriela
-                </div>
-                <div class="grid grid-cols-2 gap-4 text-center place-content-center mx-auto w-1/3">
-                    <div>01</div>
-                    <div>02</div>
-                    <div>03</div>
-                    <div>04</div>
+                    </div>
+                    
                 </div>
 
-            </div>
-            
-        </div>
+                ):(
+                    <Spinner/>
+                )
+            }
+        </>
     )
 }
 

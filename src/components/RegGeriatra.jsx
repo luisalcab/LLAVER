@@ -2,21 +2,25 @@ import React from 'react'
 import { useState } from 'react'
 import Error from './Error'
 import Back from './Back'
+import PostGeriatras from '../Hooks/PostGeriatras'
+import RegGeriatraFormat from '../data/RegGeriatraFormat.json'
 
 const RegGeriatra = ({setRegGeriatra, setValidation, setValidationMessage, setLogin}) => {
+    const [tokenAuth, setTokenAuth] = useState(localStorage.getItem("token"));
     const [nombre, setNombre] = useState("");
+    const [apellido, setApellido] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [email, setEmail] = useState("");
     const [institucion, setInstitucion] = useState("");
     const [mensajeErr, setMensajeErr] = useState("");
     const [err, setErr] = useState(false);
-
-    const handleSubmit = (e) =>{
+    const [PostGeriatra] = PostGeriatras(RegGeriatraFormat,tokenAuth);
+    const handleSubmit = async(e) =>{
         e.preventDefault();
 
         //validacion de campos
-        if([nombre,password,confirmPassword,email,institucion].includes("")){
+        if([nombre,apellido,password,confirmPassword,email,institucion].includes("")){
             setErr(true);
             setTimeout(() => setErr(false),3000)
             setMensajeErr("No se permiten campos vacios");
@@ -29,6 +33,13 @@ const RegGeriatra = ({setRegGeriatra, setValidation, setValidationMessage, setLo
 
             return;
         }
+
+        RegGeriatraFormat.nombre=nombre;
+        RegGeriatraFormat.apellido=apellido;
+        RegGeriatraFormat.password=password;
+        RegGeriatraFormat.email=email;
+
+        await PostGeriatra().then(res => console.log(res));
 
         //datos validos
         //reseteamos los campos
@@ -44,7 +55,6 @@ const RegGeriatra = ({setRegGeriatra, setValidation, setValidationMessage, setLo
         setValidationMessage("Geriatra registrado con exito");
         setValidation(true);
 
-        return;
     }
 
     return(
@@ -66,9 +76,23 @@ const RegGeriatra = ({setRegGeriatra, setValidation, setValidationMessage, setLo
                     <input
                         id="Nombre"
                         type="text"
-                        placeholder="Ej: Francisco García"
+                        placeholder="Ej: Francisco"
                         value={nombre}
                         onChange={(e) => setNombre(e.target.value)}
+                        class="rounded-br-full border mx-5 w-4/5"
+                    />
+                </div>
+                <div>
+                    <label
+                        htmlFor="Apellido"
+                        class={`block mx-5 mt-5 ${(err & apellido == "") ? 'text-red-700' : ""}`}
+                        >Apellido*</label>
+                    <input
+                        id="Apellido"
+                        type="text"
+                        placeholder="Ej: García"
+                        value={apellido}
+                        onChange={(e) => setApellido(e.target.value)}
                         class="rounded-br-full border mx-5 w-4/5"
                     />
                 </div>

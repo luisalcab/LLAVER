@@ -26,7 +26,7 @@ const Evaluaciones = ({setevaluaciones,setHome,setEstadistics,setLogout}) => {
     <>
       {datos ? (
         <div class="bg-[#EEEEEE] w-screen h-screen overflow-auto">
-          <Sidebar setLogin={setLogout} setHome={setHome} setEstadistics={setEstadistics}/>
+          <Sidebar setEvaluaciones={setevaluaciones} setLogin={setLogout} setHome={setHome} setEstadistics={setEstadistics}/>
           <div class="text-3xl text-center font-bold">
             <br />
             Evaluaciones

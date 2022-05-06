@@ -12,7 +12,6 @@ const PostExamen = (Data, idConsulta, idPaciente, idExamen, token) => {
                 method: "post",
                 withCredentials: false,
                 headers: {
-                    "Content-Type": "application/json",
                     "x-access-token": token},
                 data: Data
             }).then(response => response);

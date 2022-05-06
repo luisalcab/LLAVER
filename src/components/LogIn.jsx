@@ -9,9 +9,12 @@ const LogIn = ({ setRegGeriatra, setRecPassword, setLogIn , setHome}) => {
   const [Call] = PostLogin();
   const [err, setErr] = useState(false);
 
+
+
   //Functions
   const handleSubmit = (e) => {
     e.preventDefault();
+
 
     //Validamos las inputs
     if ([correo, password].includes("")) {
@@ -46,6 +49,7 @@ const LogIn = ({ setRegGeriatra, setRecPassword, setLogIn , setHome}) => {
 
   return (
     <div class="bg-white rounded-lg mx-auto mt-32 w-1/2">
+
       <form class="py-1" onSubmit={handleSubmit}>
         {err && <Error>Datos incorrectos</Error>}
         <div>

@@ -2,12 +2,12 @@ import React from 'react'
 import axios from "axios"
 import {useState} from 'react'
 
-const PostGeriatras = (Data, token) => {
+const PostPaciente = (Data, token) => {
     const [error, setError] = useState(null);
-    const PostGeriatras = async() => {
+    const PostPaciente = async() => {
         try{
             return await axios({
-                url:`https://geriatric-app.herokuapp.com/autenticacion/register`,
+                url:`https://geriatric-app.herokuapp.com/paciente/agregarNuevoPaciente`,
                 method: "post",
                 withCredentials: false,
                 headers: {
@@ -21,7 +21,7 @@ const PostGeriatras = (Data, token) => {
 
         
     }
-    return [PostGeriatras]
+    return [PostPaciente]
 }
 
-export default PostGeriatras
+export default PostPaciente

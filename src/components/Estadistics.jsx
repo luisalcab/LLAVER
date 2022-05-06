@@ -29,8 +29,7 @@ const Estadistics = ({ setHome, setLogout, setEstadistics }) => {
             setLogin={setLogout}
             setEstadistics={setEstadistics}
           />
-          <div class="absolute top-52 left-1/2 transform -translate-x-1/2"></div>
-          <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 grid grid-cols-2 gap-y-6 mx-auto w-1/3">
+          <div class="grid grid-cols-2 gap-y-6 mx-auto w-2/4 py-5">
             <div id="Edad-Puntaje">
               <AnyChart
                 id="Edad-Puntaje-Grafica"
