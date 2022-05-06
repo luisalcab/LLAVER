@@ -18,7 +18,7 @@ import UpdatePatient from "./components/UpdatePatient"
 
 function App() {
     //States patra el control del flujo
-    const [evalauaciones, setEvaluaciones] = useState(true);
+    const [evalauaciones, setEvaluaciones] = useState(false);
     const [logIn, setLogIn] = useState(false);
     const [recPassword, setRecPassword] = useState(false);
     const [regGeriatra, setRegGeriatra] = useState(false);
@@ -26,12 +26,13 @@ function App() {
     const [estadistics, setEstadistics] = useState(false);
     const [validationMessage, setValidationMessage] = useState("");
     const [paginicio, setPagInicio] = useState("");
-    const [miniMental, setMiniMental] = useState(false);
+    const [miniMental, setMiniMental] = useState(true);
+    const [fromMini, setFromMini] = useState(false);
     //gulag
     const [regPacientes, setRegPacientes] = useState(false);
 
     // Token
-    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjEwNCwiaWF0IjoxNjUxNzc4NTAzLCJleHAiOjE2NTE3OTI5NDN9.Ksfr4jzxE5LLWma9f3cVGegS6AgEPylY2UadphucedE");
+    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjEyNCwiaWF0IjoxNjUxNzk2MjA3LCJleHAiOjE2NTE4MTA2NDd9.d92o76vWMY2mwnHfwmZUvUuVS8tJ6wOm1qHREXa54jM");
     localStorage.setItem("token", tokenAuth);
 
     return (
@@ -39,7 +40,10 @@ function App() {
             <Logo roundedCenter={true}/>
 
             {(miniMental && <MiniMental
-                setMiniMental={setMiniMental}/>)}
+                setMiniMental={setMiniMental}
+                setFromMini = {setFromMini}
+                setValidation = {setValidation}
+                setValidationMessage = {setValidationMessage}/>)}
             {(evalauaciones && <Evaluaciones
                 setevaluaciones={setEvaluaciones}
                 setHome={setPagInicio}
@@ -47,7 +51,7 @@ function App() {
                 setEstadistics={setEstadistics}/>)}
             {(validation && <Validation 
                 setValidation={setValidation}
-                pastComponent={setLogIn}
+                pastComponent={fromMini ? setPagInicio : setLogIn}
             >{validationMessage}</Validation>)}
             {(logIn && <LogIn
                 setRecPassword={setRecPassword} 
