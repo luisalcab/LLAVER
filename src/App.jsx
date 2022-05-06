@@ -13,7 +13,7 @@ import MiniMental from "./components/MiniMental/MiniMental"
 function App() {
     //States patra el control del flujo
     const [evalauaciones, setEvaluaciones] = useState(false);
-    const [logIn, setLogIn] = useState(false);
+    const [logIn, setLogIn] = useState(true);
 
     const [recPassword, setRecPassword] = useState(false);
     const [regGeriatra, setRegGeriatra] = useState(false);
@@ -21,7 +21,7 @@ function App() {
     const [estadistics, setEstadistics] = useState(false);
     const [validationMessage, setValidationMessage] = useState("");
     const [paginicio, setPagInicio] = useState(false);
-    const [miniMental, setMiniMental] = useState(true);
+    const [miniMental, setMiniMental] = useState(false);
     const [fromMini, setFromMini] = useState(false);
     //gulag
     const [regPacientes, setRegPacientes] = useState(false);

@@ -23,7 +23,6 @@ const MiniMental = ({setMiniMental, setValidation, setValidationMessage, setFrom
 
     // Conexión con el servidor
     const [tokenAuth, setTokenAuth] = useState(localStorage.getItem("token"));
-    const [idPaciente, setidPaciente] = useState(localStorage.getItem("IDPatient"))
     const apiUrl = `/consultaGeriatrica/obtenerExamen/${idExam}`;	
     const [datos, error] = Get(apiUrl, tokenAuth);
 

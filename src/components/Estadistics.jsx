@@ -52,7 +52,7 @@ const Estadistics = ({ setHome, setLogout, setEstadistics }) => {
                 height={300}
                 type="column"
                 data={[
-                  ["Masculino", 0],
+                  ["Masculino", dataSexop.data[1].promedioTotal],
                   ["Femenino", dataSexop.data[0].promedioTotal],
                 ]}
                 title="Sexo - Puntaje Promedio"
