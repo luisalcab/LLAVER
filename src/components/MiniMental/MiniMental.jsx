@@ -27,8 +27,8 @@ const MiniMental = ({setMiniMental, setValidation, setValidationMessage, setFrom
     const [datos, error] = Get(apiUrl, tokenAuth);
 
     //CustomHooks para las consultas a la api
-    const [postExamen] = PostExamen(formato, 1084, idPaciente, idExam, tokenAuth);
-    const [GetTotal] = GetCalificacion(1084,idPaciente,idExam,tokenAuth);
+    const [postExamen] = PostExamen(formato, 1084, 74, idExam, tokenAuth);
+    const [GetTotal] = GetCalificacion(1084,74,idExam,tokenAuth);
     const [crearConsulta] = CrearConsulta(consultaFormat, tokenAuth);
 
     useEffect(() => {
