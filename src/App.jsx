@@ -13,7 +13,8 @@ import MiniMental from "./components/MiniMental/MiniMental"
 function App() {
     //States patra el control del flujo
     const [evalauaciones, setEvaluaciones] = useState(false);
-    const [logIn, setLogIn] = useState(false);
+    const [logIn, setLogIn] = useState(true);
+
     const [recPassword, setRecPassword] = useState(false);
     const [regGeriatra, setRegGeriatra] = useState(false);
     const [validation, setValidation] = useState(false);
@@ -25,10 +26,6 @@ function App() {
     //gulag
     const [regPacientes, setRegPacientes] = useState(true);
 
-    // Token
-    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjEwNCwiaWF0IjoxNjUxNzkzMDYzLCJleHAiOjE2NTE4MDc1MDN9.L1goXhxXdXHutnFo_yDA6BZN7LskLXNjY9Vk2BF_Keg");
-    localStorage.setItem("token", tokenAuth);
-    localStorage.setItem("idDoctor","134");
 
     return (
         <div class="bg-[#EEEEEE] h-screen w-full">
@@ -49,6 +46,7 @@ function App() {
                 pastComponent={fromMini ? setPagInicio : setLogIn}
             >{validationMessage}</Validation>)}
             {(logIn && <LogIn
+                setHome={setPagInicio}
                 setRecPassword={setRecPassword} 
                 setLogIn={setLogIn}
                 setRegGeriatra={setRegGeriatra}/>)}
