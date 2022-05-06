@@ -3,35 +3,29 @@ import Logo from "./components/Logo"
 import LogIn from "./components/LogIn"
 import RecPassword from "./components/RecPassword"
 import RegGeriatra from "./components/RegGeriatra"
-import Card from "./components/Card"
-import Error from "./components/Error"
-import Draw from "./components/miniMentalGames/Draw"
-import Pencil from "./components/miniMentalGames/Pencil"
-import Clock from "./components/miniMentalGames/Clock"
 import RegPacientes from "./components/RegPacientes"
 import Validation from "./components/Validation"
 import Estadistics from "./components/Estadistics"
 import PagInicio from "./components/PagInicio"
 import Evaluaciones from "./components/Evaluaciones"
 import MiniMental from "./components/MiniMental/MiniMental"
-import UpdatePatient from "./components/UpdatePatient"
 
 function App() {
     //States patra el control del flujo
-    const [evalauaciones, setEvaluaciones] = useState(true);
-    const [logIn, setLogIn] = useState(false);
+    const [evalauaciones, setEvaluaciones] = useState(false);
+    const [logIn, setLogIn] = useState(true);
     const [recPassword, setRecPassword] = useState(false);
     const [regGeriatra, setRegGeriatra] = useState(false);
     const [validation, setValidation] = useState(false);
     const [estadistics, setEstadistics] = useState(false);
     const [validationMessage, setValidationMessage] = useState("");
-    const [paginicio, setPagInicio] = useState("");
+    const [paginicio, setPagInicio] = useState(false);
     const [miniMental, setMiniMental] = useState(false);
     //gulag
     const [regPacientes, setRegPacientes] = useState(false);
 
     // Token
-    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjEwNCwiaWF0IjoxNjUxNzc4NTAzLCJleHAiOjE2NTE3OTI5NDN9.Ksfr4jzxE5LLWma9f3cVGegS6AgEPylY2UadphucedE");
+    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjEwNCwiaWF0IjoxNjUxNzkzMDYzLCJleHAiOjE2NTE4MDc1MDN9.L1goXhxXdXHutnFo_yDA6BZN7LskLXNjY9Vk2BF_Keg");
     localStorage.setItem("token", tokenAuth);
 
     return (
