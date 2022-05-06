@@ -26,8 +26,8 @@ const MiniMental = ({setMiniMental, setValidation, setValidationMessage, setFrom
     const [datos, error] = Get(apiUrl, tokenAuth);
 
     //CustomHooks para las consultas a la api
-    const [postExamen] = PostExamen(formato, 1084, 74, idExam, tokenAuth);
-    const [GetTotal] = GetCalificacion(1084,74,idExam,tokenAuth);
+    const [postExamen] = PostExamen(formato, 1234, 74, idExam, tokenAuth);
+    const [GetTotal] = GetCalificacion(1234,74,idExam,tokenAuth);
     const [crearConsulta] = CrearConsulta(consultaFormat, tokenAuth);
 
     useEffect(() => {
@@ -42,7 +42,9 @@ const MiniMental = ({setMiniMental, setValidation, setValidationMessage, setFrom
        console.log("GetIDConsulta")
     }, [])
 
-
+    useEffect(() => {
+        setValidationMessage(`${resp}. Total de puntos ${total}`);
+    }, [resp, total]);
 
     const joinAnswers = (puntaje, id) => {
         formato.respuestasExamen[id-1].puntaje = puntaje;
@@ -88,17 +90,13 @@ const MiniMental = ({setMiniMental, setValidation, setValidationMessage, setFrom
                 setResp(response.data.response.data);
             //Obtenemos la calificacion total
             await GetTotal().then ( async (response) => {
-                setTotal(response.data.response.data)
-                console.log(response.data.response.data)
+                console.log(response.data.response.data);
+                setTotal(response.data.response.data);
             })
-        }).then(() =>{
-            setMiniMental(false);
-            setFromMini(true);
-            setValidation(true);
-            console.log(resp);
-            console.log(total);
-            setValidationMessage(`${resp} \n Tu calificación es de ${total}`);
-            localStorage.removeItem("notas")});
+        }).then(() =>{localStorage.removeItem("notas")
+        setMiniMental(false);
+        setFromMini(true);
+        setValidation(true);});
     }
 
     return (
