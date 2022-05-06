@@ -11,6 +11,7 @@ const RegPacientes = ({
   setlogin,
   setValidationMessage,
   setValidation,
+  setfrommini
 }) => {
   const [tokenAuth, setTokenAuth] = useState(localStorage.getItem("token"));
   const [Nombre, setNombre] = useState("");
@@ -41,6 +42,7 @@ const RegPacientes = ({
 
     await Postpaciente().then((res) => console.log(res));
 
+    setfrommini(true);
     setRegpacientes(false);
     setValidationMessage("Paciente registrado con exito");
     setValidation(true);

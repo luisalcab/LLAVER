@@ -26,7 +26,7 @@ function App() {
     const [estadistics, setEstadistics] = useState(false);
     const [validationMessage, setValidationMessage] = useState("");
     const [paginicio, setPagInicio] = useState("");
-    const [miniMental, setMiniMental] = useState(true);
+    const [miniMental, setMiniMental] = useState(false);
     const [fromMini, setFromMini] = useState(false);
     //gulag
     const [regPacientes, setRegPacientes] = useState(true);
