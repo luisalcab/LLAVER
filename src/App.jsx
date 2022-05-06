@@ -21,18 +21,19 @@ function App() {
     const [evalauaciones, setEvaluaciones] = useState(false);
     const [logIn, setLogIn] = useState(false);
     const [recPassword, setRecPassword] = useState(false);
-    const [regGeriatra, setRegGeriatra] = useState(true);
+    const [regGeriatra, setRegGeriatra] = useState(false);
     const [validation, setValidation] = useState(false);
     const [estadistics, setEstadistics] = useState(false);
     const [validationMessage, setValidationMessage] = useState("");
     const [paginicio, setPagInicio] = useState("");
     const [miniMental, setMiniMental] = useState(false);
     //gulag
-    const [regPacientes, setRegPacientes] = useState(false);
+    const [regPacientes, setRegPacientes] = useState(true);
 
     // Token
-    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjk0LCJpYXQiOjE2NTE3ODg2NTgsImV4cCI6MTY1MTgwMzA5OH0.Wjyb5u-TB6gxJ6HCkOahGuWcYLr8-6Vkj0Y64y7atSU");
+    const [tokenAuth, setTokenAuth] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWREb2N0b3IiOjk0LCJpYXQiOjE2NTE3OTQyNzAsImV4cCI6MTY1MTgwODcxMH0.GS-oU2Uy9C9Dbj-3QDu-M2rK09BVnhz2-8PsoJ18K4E");
     localStorage.setItem("token", tokenAuth);
+    localStorage.setItem("idDoctor","134");
 
     return (
         <div class="bg-[#EEEEEE] h-screen w-full">
@@ -65,7 +66,9 @@ function App() {
                 setLogin={setLogIn}/>)}
             {(regPacientes && <RegPacientes
                 setRegpacientes={setRegPacientes}
-                setlogin={setLogIn}/>)}
+                setlogin={setLogIn}
+                setValidationMessage={setValidationMessage}
+                setValidation={setValidation}/>)}
             {(paginicio && <PagInicio
                 setPaginicio={setPagInicio}
                 setLogout={setLogIn}
