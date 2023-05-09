@@ -10,7 +10,7 @@ Administration for a geriatric mental health center
 
 ## Video game embedded in the web page developed with Unity
 
-[MiniMental](https://github.com/luisalcab/MiniMental)
+[Link to MiniMental](https://github.com/luisalcab/MiniMental)
 
 ## Imágenes de la página web en funcionamiento
 
