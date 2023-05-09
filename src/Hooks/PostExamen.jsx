@@ -8,7 +8,7 @@ const PostExamen = () => {
     const PostExamen = async (Data, idConsulta, idPaciente, idExamen, token) => {
         try{
             return await axios({
-                url:`https://geriatric-app.herokuapp.com/consultaGeriatrica/obtenerExamen/${idConsulta}/${idPaciente}/${idExamen}`,
+                url:`http://localhost:3002/consultaGeriatrica/obtenerExamen/${idConsulta}/${idPaciente}/${idExamen}`,
                 method: "post",
                 withCredentials: false,
                 headers: {

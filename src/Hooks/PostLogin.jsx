@@ -6,7 +6,7 @@ const PostLogin = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
-  const apiUrl = "https://geriatric-app.herokuapp.com/autenticacion/login";
+  const apiUrl = "http://localhost:3002/autenticacion/login";
   const authAxios = axios.create({
     url: apiUrl,
     headers: {

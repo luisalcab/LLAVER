@@ -8,7 +8,7 @@ const CrearConsulta = (Data, token) => {
     const CrearConsulta = async () => {
         try{
             return await axios({
-                url:`https://geriatric-app.herokuapp.com/consultaGeriatrica/crearNuevaConsulta`,
+                url:`http://localhost:3002/consultaGeriatrica/crearNuevaConsulta`,
                 method: "post",
                 withCredentials: false,
                 headers: {

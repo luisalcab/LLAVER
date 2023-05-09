@@ -7,7 +7,7 @@ const PostPaciente = (Data, token) => {
     const PostPaciente = async() => {
         try{
             return await axios({
-                url:`https://geriatric-app.herokuapp.com/paciente/agregarNuevoPaciente`,
+                url:`http://localhost:3002/paciente/agregarNuevoPaciente`,
                 method: "post",
                 withCredentials: false,
                 headers: {

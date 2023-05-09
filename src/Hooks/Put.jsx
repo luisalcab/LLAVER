@@ -4,7 +4,7 @@ import axios from "axios";
 const Put = (URL, Token, ID) => {
   const [error, setError] = useState(null);
 
-  const apiUrl = "https://geriatric-app.herokuapp.com";
+  const apiUrl = "http://localhost:3002";
   const authAxios = axios.create({
     baseURL: apiUrl,
     headers: {

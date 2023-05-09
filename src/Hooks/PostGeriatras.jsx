@@ -7,7 +7,7 @@ const PostGeriatras = (Data, token) => {
     const PostGeriatras = async() => {
         try{
             return await axios({
-                url:`https://geriatric-app.herokuapp.com/autenticacion/register`,
+                url:`http://localhost:3002/autenticacion/register`,
                 method: "post",
                 withCredentials: false,
                 headers: {
